@@ -1,47 +1,247 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-    <style>
-     h1 {
-      text-align: center;
-      font-size: 50px;
-      color: black;
-      background: lightblue;
-      padding: 20px;
-     }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-     p {
-     font-size: 25px;
-     color: green;
-     background: lightblue;
-     padding: 10px;
-     }
+<title>Pelajar Coding</title>
 
-     button {
-     background: red;
-     color: green;
-     padding: 15px 30px;
-     border: none;
-     border-radius: 15px;
-     font-size: 25px;
-     }
-    </style>
+<style>
+* {
+    box-sizing: border-box;
+    touch-action: manipulation;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #eef9ff;
+    color: #222;
+}
+
+header {
+    background: #87ceeb;
+    color: white;
+    text-align: center;
+    padding: 35px 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 38px;
+}
+
+header p {
+    font-size: 18px;
+}
+
+.container {
+    max-width: 850px;
+    margin: auto;
+    padding: 25px 18px;
+}
+
+.kartu {
+    background: white;
+    padding: 22px;
+    margin: 18px 0;
+    border-radius: 18px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.kartu h2 {
+    color: #1597d4;
+    margin-top: 0;
+}
+
+.tombol {
+    display: block;
+    width: 100%;
+    border: 0;
+    border-radius: 14px;
+    padding: 16px;
+    background: #1597d4;
+    color: white;
+    font-size: 19px;
+    font-weight: bold;
+    margin-top: 20px;
+    cursor: pointer;
+    touch-action: manipulation;
+}
+
+.tombol:active {
+    transform: scale(0.98);
+}
+
+code {
+    background: #e9f4f8;
+    padding: 3px 6px;
+    border-radius: 5px;
+}
+
+pre {
+    background: #18232c;
+    color: #fff;
+    padding: 16px;
+    border-radius: 12px;
+    overflow-x: auto;
+}
+
+.langkah {
+    border-left: 5px solid #87ceeb;
+    padding-left: 15px;
+    margin: 20px 0;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #666;
+}
+</style>
 </head>
 
 <body>
-  <h1 id="judul">belajar HTML/coding buat web</h1>
-  <p>HTML adalah progam buat bikin web</p>
-  <button onclick="ubahtulisan()"> click aku </button>
-  <script>
-    function ubahtulisan() {
 
-      document.getelemenBYid("judul").innerText"tombolnya diclick";
-    }
-  </script>
+<header>
+    <h1>Pelajar Coding</h1>
+    <p>Belajar coding dari nol, pelan-pelan.</p>
+</header>
+
+<div class="container">
+
+    <div class="kartu">
+        <h2>Selamat Datang!</h2>
+        <p>
+            Website ini dibuat untuk belajar dasar-dasar pemrograman
+            dengan cara yang sederhana dan mudah dipahami.
+        </p>
+
+        <button class="tombol" onclick="bukaTutorial()">
+            📚 Tutorial Coding
+        </button>
+    </div>
+
+    <section id="tutorial">
+
+        <div class="kartu">
+            <h2>1. Apa itu HTML?</h2>
+
+            <p>
+                <b>HTML</b> adalah bahasa yang digunakan untuk membuat
+                struktur sebuah halaman web.
+            </p>
+
+            <div class="langkah">
+                <b>Contoh:</b>
+                <pre>&lt;h1&gt;Halo Dunia!&lt;/h1&gt;
+&lt;p&gt;Ini website pertama saya.&lt;/p&gt;</pre>
+            </div>
+
+            <p>
+                <code>&lt;h1&gt;</code> digunakan untuk judul utama,
+                sedangkan <code>&lt;p&gt;</code> digunakan untuk paragraf.
+            </p>
+        </div>
+
+        <div class="kartu">
+            <h2>2. Apa itu CSS?</h2>
+
+            <p>
+                <b>CSS</b> digunakan untuk mengatur tampilan website,
+                seperti warna, ukuran tulisan, posisi, dan bentuk tombol.
+            </p>
+
+            <pre>h1 {
+    color: blue;
+    text-align: center;
+}</pre>
+
+            <p>
+                Dengan CSS, website yang awalnya polos bisa dibuat
+                jauh lebih menarik.
+            </p>
+        </div>
+
+        <div class="kartu">
+            <h2>3. Apa itu JavaScript?</h2>
+
+            <p>
+                <b>JavaScript</b> digunakan untuk membuat website
+                menjadi interaktif.
+            </p>
+
+            <pre>function halo() {
+    alert("Halo!");
+}</pre>
+
+            <p>
+                Contohnya, JavaScript bisa membuat tombol melakukan
+                sesuatu ketika ditekan.
+            </p>
+        </div>
+
+        <div class="kartu">
+            <h2>4. Gabungkan semuanya</h2>
+
+            <p>
+                HTML, CSS, dan JavaScript biasanya bekerja bersama:
+            </p>
+
+            <p>🧱 <b>HTML</b> = struktur</p>
+            <p>🎨 <b>CSS</b> = tampilan</p>
+            <p>⚡ <b>JavaScript</b> = interaksi</p>
+
+            <pre>&lt;h1&gt;Website Saya&lt;/h1&gt;
+
+&lt;button onclick="halo()"&gt;
+    Klik Saya
+&lt;/button&gt;
+
+&lt;script&gt;
+function halo() {
+    alert("Berhasil!");
+}
+&lt;/script&gt;</pre>
+        </div>
+
+        <div class="kartu">
+            <h2>🚀 Langkah Berikutnya</h2>
+
+            <p>
+                Setelah memahami HTML, CSS, dan JavaScript,
+                kamu bisa mulai membuat website sendiri.
+            </p>
+
+            <p>
+                Mulai dari website sederhana, lalu perlahan
+                tambahkan tombol, animasi, game, dan fitur lainnya.
+            </p>
+        </div>
+
+    </section>
+
+</div>
+
+<footer>
+    Pelajar Coding • Belajar sedikit demi sedikit
+</footer>
+
+<script>
+function bukaTutorial() {
+    document.getElementById("tutorial").scrollIntoView({
+        behavior: "smooth"
+    });
+}
+
+document.addEventListener("dblclick", function(event) {
+    event.preventDefault();
+});
+</script>
+
 </body>
-
-
-
-
-
 </html>
