@@ -2,681 +2,673 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<meta name="theme-color" content="#1597d4">
-<title>Pelajar Coding — Kursus Lengkap</title>
-
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+<title>Kursus Web Lengkap — HTML CSS JavaScript</title>
 <style>
-*{box-sizing:border-box;touch-action:manipulation}
-html{scroll-behavior:smooth}
-body{margin:0;font-family:Arial,sans-serif;background:#eef9ff;color:#17232d;line-height:1.6;transition:.25s}
-body.dark{background:#101820;color:#eaf7ff}
-header{background:linear-gradient(135deg,#1597d4,#87ceeb);color:white;text-align:center;padding:55px 18px}
-header h1{font-size:42px;margin:0 0 8px}
-header p{margin:0;font-size:18px}
-nav{position:sticky;top:0;z-index:20;background:white;padding:9px;display:flex;gap:8px;overflow-x:auto;box-shadow:0 2px 12px #0002}
-.dark nav{background:#17232d}
-nav button{border:0;border-radius:10px;padding:10px 14px;white-space:nowrap;background:#e8f7fd;color:#117daf;font-weight:bold}
-.dark nav button{background:#263b49;color:#9ce2ff}
-.container{max-width:900px;margin:auto;padding:20px 16px}
-.card{background:white;padding:24px;margin:20px 0;border-radius:18px;box-shadow:0 5px 18px #00000012}
-.dark .card{background:#18252f}
-h2{color:#1597d4}
-.dark h2{color:#76d7ff}
-h3{margin-top:24px}
-.chapter{border-left:7px solid #1597d4;padding-left:15px}
-.lesson{border-top:1px solid #d9e8ee;padding-top:18px;margin-top:22px}
-.dark .lesson{border-color:#334954}
-pre{background:#17232d;color:#f4fbff;padding:16px;border-radius:12px;overflow:auto;line-height:1.5}
-code{background:#e7f5fa;padding:2px 5px;border-radius:5px}
-.dark code{background:#29404d}
-.info,.tip,.warning{padding:14px 16px;border-radius:10px;margin:15px 0}
-.info{background:#e8f7fd;border-left:5px solid #1597d4}
-.tip{background:#eaf8ee;border-left:5px solid #21a366}
-.warning{background:#fff5dd;border-left:5px solid #f0a500}
-.dark .info{background:#203744}.dark .tip{background:#183525}.dark .warning{background:#3a301c}
-.btn{border:0;border-radius:12px;padding:13px 17px;background:#1597d4;color:white;font-weight:bold;font-size:15px;cursor:pointer;margin:5px 3px}
-.btn.green{background:#21a366}.btn.orange{background:#f0a500}.btn.red{background:#d9534f}
-textarea{width:100%;min-height:180px;background:#111c23;color:white;border:2px solid #87ceeb;border-radius:12px;padding:14px;font-family:monospace}
-.preview{background:white;color:#111;min-height:120px;border:2px dashed #87ceeb;border-radius:12px;padding:15px;margin-top:12px}
-.progress{height:14px;background:#d7e1e5;border-radius:20px;overflow:hidden}
-.bar{height:100%;width:0;background:#21a366;transition:.4s}
-.chapter-title{font-size:30px;margin-bottom:5px}
-.badge{display:inline-block;background:#e8f7fd;color:#117daf;padding:5px 10px;border-radius:20px;font-size:13px;font-weight:bold}
-.dark .badge{background:#263b49;color:#9ce2ff}
-.quiz{background:#f5fbfd;border-radius:14px;padding:16px;margin-top:18px}
-.dark .quiz{background:#20323d}
-.quiz button{display:block;width:100%;text-align:left;margin:8px 0}
-#top{position:fixed;right:18px;bottom:18px;width:48px;height:48px;border:0;border-radius:50%;background:#1597d4;color:white;font-size:22px;display:none;z-index:30}
-footer{text-align:center;padding:35px 15px;color:#71808a}
-ul{padding-left:24px}
-@media(max-width:600px){
- header h1{font-size:34px}
- .card{padding:19px}
- .chapter-title{font-size:26px}
-}
+:root{--bg:#f4f7fb;--card:#fff;--text:#172033;--muted:#667085;--main:#4f7cff;--soft:#eaf0ff;--code:#101827;--border:#dce3ef}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth;touch-action:manipulation}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,sans-serif;background:var(--bg);color:var(--text);line-height:1.65}
+button,a{touch-action:manipulation}
+header{background:linear-gradient(135deg,#315bea,#7c4dff);color:white;padding:55px 18px 42px;text-align:center}
+header h1{font-size:clamp(30px,7vw,58px);margin:0 0 8px}
+header p{margin:0 auto 22px;max-width:720px;opacity:.92}
+nav{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);overflow-x:auto;white-space:nowrap;padding:10px}
+nav a{display:inline-block;color:var(--text);text-decoration:none;font-weight:700;padding:9px 13px;border-radius:10px}
+nav a:hover{background:var(--soft)}
+main{max-width:1050px;margin:auto;padding:22px 14px 80px}
+section{scroll-margin-top:65px}
+.hero,.chapter,.lesson,.device,.project,.tip{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:20px;margin:18px 0;box-shadow:0 5px 20px #00000008}
+.hero{padding:28px}
+h2{font-size:30px;margin:0 0 10px}
+h3{margin-top:25px}
+h4{margin-bottom:5px}
+.badge{display:inline-block;background:var(--soft);color:#315bea;border-radius:999px;padding:4px 10px;font-size:13px;font-weight:800}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.card{background:var(--soft);padding:16px;border-radius:14px}
+pre{background:var(--code);color:#e8eefc;padding:15px;border-radius:12px;overflow:auto;white-space:pre-wrap}
+code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}
+.inline{background:#edf1f7;padding:2px 6px;border-radius:5px}
+.note{border-left:5px solid var(--main);background:#f0f4ff;padding:12px 15px;border-radius:8px}
+.lesson summary{cursor:pointer;font-weight:800;font-size:18px}
+.exercise{background:#fff8df;border:1px solid #f1dc82;padding:14px;border-radius:12px}
+.btn{border:0;border-radius:11px;padding:11px 16px;background:var(--main);color:white;font-weight:800;cursor:pointer}
+.btn.alt{background:#172033}
+#top{position:fixed;right:16px;bottom:16px;border:0;border-radius:50%;width:48px;height:48px;background:#172033;color:#fff;font-size:20px;display:none}
+footer{text-align:center;color:var(--muted);padding:35px}
+.play{width:100%;min-height:180px;background:#fff;border:1px solid var(--border);border-radius:12px;padding:12px;font:15px monospace}
+#preview{width:100%;min-height:120px;border:1px dashed var(--border);border-radius:12px;background:#fff;padding:15px;margin-top:10px}
+@media(max-width:600px){main{padding:12px 9px 60px}.hero,.chapter,.lesson,.device,.project,.tip{padding:16px}h2{font-size:25px}pre{font-size:13px}}
 </style>
 </head>
-
 <body>
-<header id="home">
-<h1>Pelajar Coding</h1>
-<p>Kursus coding dari 0 sampai bisa membuat project sendiri.</p>
+
+<header>
+<h1>🚀 Kursus Web Lengkap</h1>
+<p>Belajar HTML + CSS + JavaScript dari benar-benar nol sampai bisa membuat website dan aplikasi web sendiri.</p>
+<button class="btn" onclick="document.getElementById('mulai').scrollIntoView()">Mulai Belajar</button>
 </header>
 
 <nav>
-<button onclick="go('home')">🏠 Home</button>
-<button onclick="go('bab1')">📘 HTML</button>
-<button onclick="go('bab2')">🎨 CSS</button>
-<button onclick="go('bab3')">⚡ JavaScript</button>
-<button onclick="go('bab4')">🚀 Lanjutan</button>
-<button onclick="go('bab5')">🌐 Project</button>
-<button onclick="go('playground')">🧪 Playground</button>
+<a href="#mulai">Mulai</a><a href="#perangkat">HP / PC</a><a href="#html">HTML</a><a href="#css">CSS</a><a href="#js">JavaScript</a><a href="#dom">DOM</a><a href="#lanjut">JS Lanjutan</a><a href="#responsive">Responsive</a><a href="#api">API</a><a href="#project">Project</a>
 </nav>
 
-<div class="container">
-
-<section class="card">
-<span class="badge">KURSUS LENGKAP</span>
-<h2>Belajar Coding dari Nol</h2>
-<p>Kursus ini dibuat bertahap. Baca satu pelajaran, coba contoh kodenya, lalu lanjut ke pelajaran berikutnya.</p>
-<div class="info"><b>Urutan:</b> HTML → CSS → JavaScript → JavaScript lanjutan → Project website.</div>
-<p>Progress kamu:</p>
-<div class="progress"><div class="bar" id="bar"></div></div>
-<button class="btn green" onclick="completeLesson()">✓ Tandai pelajaran selesai</button>
-<button class="btn orange" onclick="toggleDark()">🌙 Mode gelap</button>
+<main>
+<section id="mulai" class="hero">
+<span class="badge">JALUR BELAJAR</span>
+<h2>Belajar pelan-pelan, tapi lengkap.</h2>
+<p>Urutannya dibuat supaya pemula tidak langsung dilempar ke kode rumit. Baca penjelasan, lihat contoh, ubah kodenya, lalu kerjakan latihan.</p>
+<div class="grid">
+<div class="card"><b>1. HTML</b><br>Struktur dan isi website.</div>
+<div class="card"><b>2. CSS</b><br>Tampilan, layout, animasi.</div>
+<div class="card"><b>3. JavaScript</b><br>Logika dan interaksi.</div>
+<div class="card"><b>4. DOM</b><br>Mengendalikan halaman dengan JS.</div>
+<div class="card"><b>5. Web modern</b><br>Storage, JSON, API, async.</div>
+<div class="card"><b>6. Project</b><br>Gabungkan semuanya.</div>
+</div>
 </section>
 
-<section class="card" id="bab1">
-<h2 class="chapter-title">BAB 1 — HTML Dasar</h2>
-<p><b>Target:</b> memahami struktur halaman web dan mampu membuat halaman HTML sendiri.</p>
-
-<div class="lesson">
-<h3>1. Apa itu HTML?</h3>
-<p>HTML adalah bahasa markup untuk menyusun struktur halaman web. HTML memberi tahu browser bagian mana yang merupakan judul, paragraf, gambar, link, tombol, dan sebagainya.</p>
-<pre>&lt;h1&gt;Halo Dunia!&lt;/h1&gt;
-&lt;p&gt;Saya sedang belajar HTML.&lt;/p&gt;</pre>
+<section id="perangkat" class="chapter">
+<span class="badge">SEBELUM MULAI</span>
+<h2>📱 HP vs 💻 PC/Laptop</h2>
+<div class="grid">
+<div class="device">
+<h3>📱 Kalau pakai HP Android</h3>
+<ul>
+<li>Browser: Chrome atau browser lain.</li>
+<li>Editor: editor kode Android.</li>
+<li>Untuk terminal: Termux.</li>
+<li>Server lokal: <code>python -m http.server 8080</code>.</li>
+<li>Git/GitHub bisa dikerjakan lewat Termux.</li>
+<li>Keyboard + mouse OTG boleh dipakai, tapi tidak wajib.</li>
+</ul>
+<pre>pkg update
+pkg install python git
+mkdir website
+cd website
+python -m http.server 8080</pre>
 </div>
+<div class="device">
+<h3>💻 Kalau pakai PC/Laptop</h3>
+<ul>
+<li>Browser: Chrome/Firefox/Edge.</li>
+<li>Editor: VS Code atau editor lain.</li>
+<li>Terminal: CMD, PowerShell, Terminal Linux/macOS.</li>
+<li>Git untuk version control.</li>
+<li>DevTools browser untuk debugging.</li>
+<li>Node.js/npm berguna saat masuk tooling modern.</li>
+</ul>
+<pre>mkdir website
+cd website
+code .
+python -m http.server 8080</pre>
+</div>
+</div>
+<p class="note"><b>Penting:</b> HTML, CSS, dan JavaScript yang dipelajari pada dasarnya sama di HP maupun PC. Yang berbeda terutama alat, terminal, editor, dan cara menjalankannya.</p>
+</section>
 
-<div class="lesson">
-<h3>2. Struktur dokumen HTML</h3>
-<p>Dokumen HTML biasanya memiliki <code>html</code>, <code>head</code>, dan <code>body</code>.</p>
+<section id="html" class="chapter">
+<span class="badge">BAB 1</span>
+<h2>🧱 HTML — Fondasi Website</h2>
+<p>HTML menentukan struktur dan isi halaman. Anggap saja HTML sebagai kerangka rumah.</p>
+
+<div class="lesson"><details open><summary>1. Struktur dokumen HTML</summary>
+<p>Dokumen HTML biasanya dimulai dengan deklarasi HTML, lalu <code>html</code>, <code>head</code>, dan <code>body</code>.</p>
 <pre>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
+&lt;html lang="id"&gt;
 &lt;head&gt;
-    &lt;title&gt;Website Saya&lt;/title&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Website Saya&lt;/title&gt;
 &lt;/head&gt;
 &lt;body&gt;
-    &lt;h1&gt;Halo!&lt;/h1&gt;
+  &lt;h1&gt;Halo!&lt;/h1&gt;
 &lt;/body&gt;
 &lt;/html&gt;</pre>
-<div class="tip">Bagian <code>body</code> berisi hal yang terlihat di halaman.</div>
-</div>
+<div class="exercise"><b>Latihan:</b> Ganti judul tab dan tulisan <code>Halo!</code>.</div>
+</details></div>
 
-<div class="lesson">
-<h3>3. Heading dan paragraf</h3>
-<pre>&lt;h1&gt;Judul Besar&lt;/h1&gt;
+<div class="lesson"><details><summary>2. Heading dan paragraph</summary>
+<pre>&lt;h1&gt;Judul Utama&lt;/h1&gt;
 &lt;h2&gt;Subjudul&lt;/h2&gt;
-&lt;h3&gt;Judul Kecil&lt;/h3&gt;
 &lt;p&gt;Ini sebuah paragraf.&lt;/p&gt;</pre>
-<p><code>h1</code> sampai <code>h6</code> adalah heading dengan tingkat berbeda.</p>
-</div>
+<p><code>h1</code> sampai <code>h6</code> digunakan untuk tingkatan heading. <code>p</code> untuk paragraf.</p>
+</details></div>
 
-<div class="lesson">
-<h3>4. Link</h3>
-<pre>&lt;a href="https://example.com"&gt;
-    Buka Website
-&lt;/a&gt;</pre>
-<p>Atribut <code>href</code> menentukan tujuan link.</p>
-</div>
+<div class="lesson"><details><summary>3. Link dan gambar</summary>
+<pre>&lt;a href="https://example.com"&gt;Buka website&lt;/a&gt;
 
-<div class="lesson">
-<h3>5. Gambar</h3>
-<pre>&lt;img src="gambar.jpg" alt="Gambar saya"&gt;</pre>
-<p><code>src</code> menentukan lokasi gambar dan <code>alt</code> memberi deskripsi gambar.</p>
-</div>
+&lt;img src="gambar.jpg" alt="Deskripsi gambar"&gt;</pre>
+<p><code>href</code> menentukan tujuan link. <code>src</code> menentukan sumber gambar. <code>alt</code> membantu aksesibilitas.</p>
+</details></div>
 
-<div class="lesson">
-<h3>6. List</h3>
+<div class="lesson"><details><summary>4. List</summary>
 <pre>&lt;ul&gt;
-    &lt;li&gt;HTML&lt;/li&gt;
-    &lt;li&gt;CSS&lt;/li&gt;
-    &lt;li&gt;JavaScript&lt;/li&gt;
-&lt;/ul&gt;</pre>
-<p><code>ul</code> membuat daftar dan <code>li</code> membuat item daftar.</p>
-</div>
+  &lt;li&gt;HTML&lt;/li&gt;
+  &lt;li&gt;CSS&lt;/li&gt;
+&lt;/ul&gt;
 
-<div class="lesson">
-<h3>7. Button</h3>
+&lt;ol&gt;
+  &lt;li&gt;Pertama&lt;/li&gt;
+  &lt;li&gt;Kedua&lt;/li&gt;
+&lt;/ol&gt;</pre>
+</details></div>
+
+<div class="lesson"><details><summary>5. Button</summary>
 <pre>&lt;button&gt;Klik Saya&lt;/button&gt;</pre>
-<p>Button bisa diberi CSS dan JavaScript agar lebih berguna.</p>
-</div>
+<p>Button sendiri belum otomatis melakukan aksi. Nanti JavaScript yang membuatnya interaktif.</p>
+</details></div>
 
-<div class="lesson">
-<h3>8. Tabel</h3>
+<div class="lesson"><details><summary>6. Table</summary>
 <pre>&lt;table&gt;
-    &lt;tr&gt;
-        &lt;th&gt;Nama&lt;/th&gt;
-        &lt;th&gt;Level&lt;/th&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td&gt;Budi&lt;/td&gt;
-        &lt;td&gt;Pemula&lt;/td&gt;
-    &lt;/tr&gt;
+  &lt;tr&gt;&lt;th&gt;Nama&lt;/th&gt;&lt;th&gt;Nilai&lt;/th&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;Budi&lt;/td&gt;&lt;td&gt;90&lt;/td&gt;&lt;/tr&gt;
 &lt;/table&gt;</pre>
-</div>
+</details></div>
 
-<div class="lesson">
-<h3>9. Form dan input</h3>
+<div class="lesson"><details><summary>7. Form dan input</summary>
 <pre>&lt;form&gt;
-    &lt;input type="text" placeholder="Nama"&gt;
-    &lt;input type="email" placeholder="Email"&gt;
-    &lt;button&gt;Kirim&lt;/button&gt;
+  &lt;label&gt;Nama:&lt;/label&gt;
+  &lt;input type="text" placeholder="Nama kamu"&gt;
+  &lt;button type="submit"&gt;Kirim&lt;/button&gt;
 &lt;/form&gt;</pre>
-<p>Form digunakan untuk menerima input dari pengguna.</p>
-</div>
+</details></div>
 
-<div class="lesson">
-<h3>10. Semantic HTML</h3>
-<p>Elemen seperti <code>header</code>, <code>nav</code>, <code>main</code>, <code>section</code>, dan <code>footer</code> membantu memberi arti pada struktur halaman.</p>
-</div>
+<div class="lesson"><details><summary>8. div, span, class, id</summary>
+<pre>&lt;div class="kartu"&gt;
+  &lt;h2 id="judul"&gt;Halo&lt;/h2&gt;
+  &lt;span&gt;Teks kecil&lt;/span&gt;
+&lt;/div&gt;</pre>
+<p><code>class</code> cocok untuk banyak elemen. <code>id</code> biasanya digunakan untuk satu elemen tertentu.</p>
+</details></div>
 
-<div class="tip"><b>Project BAB 1:</b> Buat halaman profil sederhana menggunakan judul, paragraf, gambar, link, list, dan button.</div>
+<div class="lesson"><details><summary>9. Semantic HTML</summary>
+<pre>&lt;header&gt;Header&lt;/header&gt;
+&lt;nav&gt;Menu&lt;/nav&gt;
+&lt;main&gt;Isi utama&lt;/main&gt;
+&lt;section&gt;Bagian&lt;/section&gt;
+&lt;article&gt;Artikel&lt;/article&gt;
+&lt;footer&gt;Footer&lt;/footer&gt;</pre>
+<p>Elemen semantik membantu struktur halaman lebih jelas.</p>
+</details></div>
+
+<div class="lesson"><details><summary>10. Media dan metadata</summary>
+<pre>&lt;audio controls src="musik.mp3"&gt;&lt;/audio&gt;
+&lt;video controls src="video.mp4"&gt;&lt;/video&gt;
+
+&lt;meta name="description" content="Website belajar coding"&gt;</pre>
+</details></div>
+
+<div class="project"><h3>🎯 Project HTML</h3><p>Buat halaman profil sederhana berisi judul, foto, deskripsi, daftar hobi, tabel jadwal, link, dan form kontak.</p></div>
 </section>
 
-<section class="card" id="bab2">
-<h2 class="chapter-title">BAB 2 — CSS Dasar sampai Layout</h2>
-<p><b>Target:</b> membuat website terlihat rapi, responsif, dan menarik.</p>
+<section id="css" class="chapter">
+<span class="badge">BAB 2</span>
+<h2>🎨 CSS — Membuat Website Bagus</h2>
+<p>CSS mengatur warna, ukuran, jarak, posisi, layout, responsif, dan animasi.</p>
 
-<div class="lesson">
-<h3>1. Apa itu CSS?</h3>
-<p>CSS mengatur tampilan HTML: warna, ukuran, jarak, posisi, bentuk, dan banyak lagi.</p>
-<pre>h1 {
-    color: blue;
-    font-size: 40px;
-}</pre>
-</div>
+<div class="lesson"><details open><summary>1. Memasang CSS</summary>
+<pre>&lt;style&gt;
+  body { background: lightblue; }
+  h1 { color: blue; }
+&lt;/style&gt;</pre>
+<p>Untuk project besar, CSS biasanya dipisahkan menjadi <code>style.css</code> lalu dipanggil dengan <code>&lt;link&gt;</code>.</p>
+</details></div>
 
-<div class="lesson">
-<h3>2. Selector</h3>
-<pre>p {
-    color: red;
-}
+<div class="lesson"><details><summary>2. Selector</summary>
+<pre>p { color: red; }
+.kartu { padding: 20px; }
+#judul { font-size: 40px; }</pre>
+</details></div>
 
-.judul {
-    color: blue;
-}
-
-#utama {
-    color: green;
-}</pre>
-<p><code>p</code> memilih tag, <code>.judul</code> memilih class, dan <code>#utama</code> memilih id.</p>
-</div>
-
-<div class="lesson">
-<h3>3. Warna dan background</h3>
+<div class="lesson"><details><summary>3. Warna, background, font, text</summary>
 <pre>body {
-    background: #eef9ff;
-    color: #222;
+  background: #f4f7fb;
+  color: #172033;
+  font-family: Arial, sans-serif;
+}
+h1 {
+  color: #4f7cff;
+  text-align: center;
+  font-size: 48px;
 }</pre>
-</div>
+</details></div>
 
-<div class="lesson">
-<h3>4. Font dan teks</h3>
-<pre>p {
-    font-size: 20px;
-    font-weight: bold;
-    text-align: center;
-}</pre>
-</div>
-
-<div class="lesson">
-<h3>5. Margin dan padding</h3>
+<div class="lesson"><details><summary>4. Box model: margin dan padding</summary>
 <pre>.kotak {
-    margin: 20px;
-    padding: 20px;
+  margin: 20px;
+  padding: 20px;
+  border: 2px solid black;
+  width: 250px;
 }</pre>
-<p><b>Margin</b> adalah jarak di luar elemen. <b>Padding</b> adalah jarak di dalam elemen.</p>
-</div>
+<p><b>Padding</b> adalah ruang di dalam elemen. <b>Margin</b> adalah ruang di luar elemen.</p>
+</details></div>
 
-<div class="lesson">
-<h3>6. Border dan radius</h3>
+<div class="lesson"><details><summary>5. Border, radius, shadow</summary>
+<pre>.kartu {
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px #0002;
+}</pre>
+</details></div>
+
+<div class="lesson"><details><summary>6. Flexbox</summary>
+<pre>.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}</pre>
+<p>Flexbox sangat berguna untuk menyusun elemen secara horizontal atau vertikal.</p>
+</details></div>
+
+<div class="lesson"><details><summary>7. Grid</summary>
+<pre>.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}</pre>
+</details></div>
+
+<div class="lesson"><details><summary>8. Position dan z-index</summary>
 <pre>.kotak {
-    border: 2px solid blue;
-    border-radius: 15px;
-}</pre>
-</div>
-
-<div class="lesson">
-<h3>7. Width dan height</h3>
-<pre>.kotak {
-    width: 300px;
-    height: 150px;
-}</pre>
-</div>
-
-<div class="lesson">
-<h3>8. Flexbox</h3>
-<pre>.menu {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}</pre>
-<p>Flexbox sangat berguna untuk menyusun elemen dalam baris atau kolom.</p>
-</div>
-
-<div class="lesson">
-<h3>9. Grid</h3>
-<pre>.grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-}</pre>
-</div>
-
-<div class="lesson">
-<h3>10. Position</h3>
-<pre>.kotak {
-    position: relative;
+  position: relative;
+  top: 10px;
 }
 
-.tombol {
-    position: absolute;
-    right: 10px;
-    top: 10px;
+.menu {
+  position: fixed;
+  top: 0;
+  z-index: 100;
 }</pre>
-</div>
+</details></div>
 
-<div class="lesson">
-<h3>11. Responsive</h3>
+<div class="lesson"><details><summary>9. Pseudo-class dan pseudo-element</summary>
+<pre>button:hover {
+  transform: scale(1.05);
+}
+
+p::first-letter {
+  font-size: 30px;
+}</pre>
+</details></div>
+
+<div class="lesson"><details><summary>10. Transition dan animation</summary>
+<pre>button {
+  transition: .2s;
+}
+button:hover {
+  transform: scale(1.05);
+}
+
+@keyframes muncul {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.kartu {
+  animation: muncul 1s;
+}</pre>
+</details></div>
+
+<div class="lesson"><details><summary>11. Responsive / media query</summary>
 <pre>@media (max-width: 600px) {
-    h1 {
-        font-size: 30px;
-    }
+  h1 { font-size: 30px; }
+  .container { grid-template-columns: 1fr; }
 }</pre>
-<p>Media query membuat tampilan bisa menyesuaikan layar HP, tablet, dan perangkat lain.</p>
-</div>
+<p>Dengan media query, tampilan dapat menyesuaikan layar HP, tablet, dan PC.</p>
+</details></div>
 
-<div class="lesson">
-<h3>12. Animasi sederhana</h3>
-<pre>@keyframes muncul {
-    from { opacity: 0; }
-    to { opacity: 1; }
+<div class="lesson"><details><summary>12. CSS variables</summary>
+<pre>:root {
+  --utama: #4f7cff;
 }
 
-.box {
-    animation: muncul 1s;
+button {
+  background: var(--utama);
 }</pre>
-</div>
+</details></div>
 
-<div class="tip"><b>Project BAB 2:</b> Percantik project HTML sebelumnya. Gunakan card, warna, Flexbox, responsive, dan animasi.</div>
+<div class="project"><h3>🎯 Project CSS</h3><p>Ambil project HTML sebelumnya lalu ubah menjadi website profil yang punya kartu, tombol, layout Flexbox/Grid, animasi, dan tampilan HP.</p></div>
 </section>
 
-<section class="card" id="bab3">
-<h2 class="chapter-title">BAB 3 — JavaScript Dasar</h2>
-<p><b>Target:</b> membuat website bisa merespons tindakan pengguna.</p>
+<section id="js" class="chapter">
+<span class="badge">BAB 3</span>
+<h2>⚙️ JavaScript — Otak Website</h2>
 
-<div class="lesson">
-<h3>1. Apa itu JavaScript?</h3>
-<p>JavaScript adalah bahasa pemrograman yang dapat membuat halaman web menjadi interaktif.</p>
-<pre>&lt;script&gt;
-alert("Halo!");
-&lt;/script&gt;</pre>
-</div>
-
-<div class="lesson">
-<h3>2. Console</h3>
-<pre>console.log("Halo dari JavaScript");</pre>
-<p>Console berguna untuk melihat hasil dan membantu mencari masalah dalam program.</p>
-</div>
-
-<div class="lesson">
-<h3>3. Variabel</h3>
+<div class="lesson"><details open><summary>1. Variabel</summary>
 <pre>let nama = "Budi";
-let umur = 15;
+const umur = 15;
 
 console.log(nama);
 console.log(umur);</pre>
-</div>
+<p><code>let</code> dapat diubah. <code>const</code> digunakan untuk nilai yang tidak perlu diganti.</p>
+</details></div>
 
-<div class="lesson">
-<h3>4. String dan angka</h3>
+<div class="lesson"><details><summary>2. String, number, boolean</summary>
 <pre>let nama = "Budi";
 let umur = 15;
+let aktif = true;</pre>
+</details></div>
 
-let hasil = umur + 5;</pre>
-<p>String adalah teks. Angka digunakan untuk operasi matematika.</p>
-</div>
-
-<div class="lesson">
-<h3>5. Operator</h3>
+<div class="lesson"><details><summary>3. Operator</summary>
 <pre>let a = 10;
-let b = 5;
+let b = 3;
 
 console.log(a + b);
 console.log(a - b);
 console.log(a * b);
-console.log(a / b);</pre>
-</div>
+console.log(a / b);
+console.log(a > b);</pre>
+</details></div>
 
-<div class="lesson">
-<h3>6. If dan else</h3>
-<pre>let umur = 15;
+<div class="lesson"><details><summary>4. If / else</summary>
+<pre>let nilai = 80;
 
-if (umur >= 17) {
-    console.log("Sudah 17 atau lebih");
+if (nilai >= 75) {
+  console.log("Lulus");
 } else {
-    console.log("Masih di bawah 17");
+  console.log("Belum lulus");
 }</pre>
-</div>
+</details></div>
 
-<div class="lesson">
-<h3>7. Loop for</h3>
+<div class="lesson"><details><summary>5. Loop</summary>
 <pre>for (let i = 1; i <= 5; i++) {
-    console.log(i);
+  console.log(i);
+}
+
+let x = 0;
+while (x < 5) {
+  console.log(x);
+  x++;
 }</pre>
-<p>Loop menjalankan kode berulang kali.</p>
-</div>
+</details></div>
 
-<div class="lesson">
-<h3>8. Loop while</h3>
-<pre>let i = 1;
-
-while (i <= 5) {
-    console.log(i);
-    i++;
-}</pre>
-</div>
-
-<div class="lesson">
-<h3>9. Function</h3>
+<div class="lesson"><details><summary>6. Function</summary>
 <pre>function sapa(nama) {
-    return "Halo " + nama;
+  return "Halo " + nama;
 }
 
 console.log(sapa("Budi"));</pre>
-</div>
+</details></div>
 
-<div class="lesson">
-<h3>10. Array</h3>
-<pre>let buah = ["Apel", "Mangga", "Jeruk"];
+<div class="lesson"><details><summary>7. Array</summary>
+<pre>let buah = ["Apel", "Jeruk", "Mangga"];
 
-console.log(buah[0]);</pre>
-<p>Array menyimpan beberapa nilai dalam satu variabel.</p>
-</div>
+console.log(buah[0]);
+buah.push("Pisang");</pre>
+</details></div>
 
-<div class="lesson">
-<h3>11. Object</h3>
-<pre>let pemain = {
-    nama: "Budi",
-    level: 5,
-    koin: 100
+<div class="lesson"><details><summary>8. Object</summary>
+<pre>let player = {
+  nama: "Alex",
+  level: 5,
+  koin: 100
 };
 
-console.log(pemain.nama);</pre>
-</div>
+console.log(player.nama);</pre>
+</details></div>
 
-<div class="lesson">
-<h3>12. Event</h3>
-<pre>&lt;button onclick="sapa()"&gt;
-    Klik
-&lt;/button&gt;
+<div class="lesson"><details><summary>9. Function modern / arrow</summary>
+<pre>const tambah = (a, b) => {
+  return a + b;
+};</pre>
+</details></div>
 
-&lt;script&gt;
-function sapa() {
-    alert("Tombol ditekan!");
-}
-&lt;/script&gt;</pre>
-</div>
+<div class="lesson"><details><summary>10. Template literal</summary>
+<pre>let nama = "Budi";
+let umur = 15;
 
-<div class="lesson">
-<h3>13. DOM</h3>
-<pre>document.getElementById("judul").innerText =
-    "Judul berubah!";</pre>
-<p>DOM memungkinkan JavaScript membaca dan mengubah elemen HTML.</p>
-</div>
+console.log(`Nama saya ${nama}, umur ${umur}`);</pre>
+</details></div>
 
-<div class="lesson">
-<h3>14. Input pengguna</h3>
-<pre>let nama = document.getElementById("nama").value;
-console.log(nama);</pre>
-</div>
-
-<div class="quiz">
-<b>🧠 Mini Quiz</b>
-<p>Apa fungsi <code>document.getElementById()</code>?</p>
-<button class="btn" onclick="answer(this,false)">Mengubah warna internet</button>
-<button class="btn" onclick="answer(this,true)">Mencari elemen HTML berdasarkan id</button>
-<button class="btn" onclick="answer(this,false)">Membuat file baru</button>
-<p id="quizResult"></p>
-</div>
-
-<div class="tip"><b>Project BAB 3:</b> Buat kalkulator sederhana yang menerima dua angka dan menampilkan hasilnya.</div>
+<div class="project"><h3>🎯 Project JavaScript dasar</h3><p>Buat program penghitung nilai: pengguna memasukkan nilai, JavaScript menentukan kategori nilai dan menampilkan hasil.</p></div>
 </section>
 
-<section class="card" id="bab4">
-<h2 class="chapter-title">BAB 4 — JavaScript Lanjutan</h2>
-<p><b>Target:</b> mulai membuat aplikasi web yang menyimpan data dan mengambil data dari internet.</p>
+<section id="dom" class="chapter">
+<span class="badge">BAB 4</span>
+<h2>🖱️ DOM & Interaksi</h2>
+<p>DOM memungkinkan JavaScript membaca dan mengubah elemen HTML.</p>
 
-<div class="lesson">
-<h3>1. Array Methods</h3>
-<pre>let angka = [1, 2, 3, 4, 5];
+<div class="lesson"><details open><summary>1. Mengambil elemen</summary>
+<pre>const judul = document.getElementById("judul");
+const tombol = document.querySelector(".tombol");</pre>
+</details></div>
 
-let hasil = angka.map(function(x) {
-    return x * 2;
+<div class="lesson"><details><summary>2. Mengubah teks</summary>
+<pre>judul.innerText = "Judul Baru!";</pre>
+</details></div>
+
+<div class="lesson"><details><summary>3. Mengubah CSS</summary>
+<pre>judul.style.color = "red";
+judul.style.fontSize = "50px";</pre>
+</details></div>
+
+<div class="lesson"><details><summary>4. Event click</summary>
+<pre>tombol.addEventListener("click", () => {
+  judul.innerText = "Tombol ditekan!";
 });</pre>
-<p>Method seperti <code>map</code>, <code>filter</code>, dan <code>find</code> membantu mengolah array.</p>
-</div>
+</details></div>
 
-<div class="lesson">
-<h3>2. Object lebih dalam</h3>
-<pre>let player = {
-    nama: "Alex",
-    stats: {
-        level: 10,
-        hp: 100
-    }
-};
+<div class="lesson"><details><summary>5. Input</summary>
+<pre>const input = document.querySelector("#nama");
+const hasil = document.querySelector("#hasil");
 
-console.log(player.stats.level);</pre>
-</div>
+function tampilkan() {
+  hasil.innerText = input.value;
+}</pre>
+</details></div>
 
-<div class="lesson">
-<h3>3. addEventListener</h3>
-<pre>button.addEventListener("click", function() {
-    console.log("Diklik!");
-});</pre>
-<p>Ini adalah cara umum memasang event tanpa menulis event langsung di HTML.</p>
-</div>
+<div class="lesson"><details><summary>6. Membuat elemen dengan JS</summary>
+<pre>const p = document.createElement("p");
+p.innerText = "Elemen baru!";
+document.body.appendChild(p);</pre>
+</details></div>
 
-<div class="lesson">
-<h3>4. Local Storage</h3>
+<div class="lesson"><details><summary>7. Mini quiz</summary>
+<pre>let jawaban = "html";
+
+if (jawaban === "html") {
+  console.log("Benar!");
+} else {
+  console.log("Salah!");
+}</pre>
+</details></div>
+
+<div class="project"><h3>🎯 Project DOM</h3><p>Buat to-do list sederhana: input tugas → klik tambah → tugas muncul di halaman → tombol hapus menghapus tugas.</p></div>
+</section>
+
+<section id="lanjut" class="chapter">
+<span class="badge">BAB 5</span>
+<h2>🧠 JavaScript Lanjutan</h2>
+
+<div class="lesson"><details open><summary>1. Array methods</summary>
+<pre>const angka = [1, 2, 3, 4];
+
+const kaliDua = angka.map(x => x * 2);
+const besar = angka.filter(x => x > 2);
+
+console.log(kaliDua);
+console.log(besar);</pre>
+</details></div>
+
+<div class="lesson"><details><summary>2. Destructuring & spread</summary>
+<pre>const user = { nama: "Budi", level: 5 };
+const { nama, level } = user;
+
+const a = [1, 2];
+const b = [...a, 3, 4];</pre>
+</details></div>
+
+<div class="lesson"><details><summary>3. LocalStorage</summary>
 <pre>localStorage.setItem("nama", "Budi");
 
-let nama = localStorage.getItem("nama");</pre>
-<p>Local Storage dapat menyimpan data sederhana di browser.</p>
-</div>
+const nama = localStorage.getItem("nama");
+console.log(nama);</pre>
+<p>Bisa digunakan untuk menyimpan data sederhana di browser.</p>
+</details></div>
 
-<div class="lesson">
-<h3>5. JSON</h3>
-<pre>let data = {
-    nama: "Budi",
-    level: 10
+<div class="lesson"><details><summary>4. JSON</summary>
+<pre>const data = {
+  nama: "Budi",
+  level: 5
 };
 
-let teks = JSON.stringify(data);
-let kembali = JSON.parse(teks);</pre>
-</div>
+const teks = JSON.stringify(data);
+const kembali = JSON.parse(teks);</pre>
+</details></div>
 
-<div class="lesson">
-<h3>6. Timer</h3>
-<pre>setTimeout(function() {
-    console.log("Selesai");
-}, 2000);</pre>
-</div>
+<div class="lesson"><details><summary>5. Timer</summary>
+<pre>setTimeout(() => {
+  console.log("Jalan setelah 2 detik");
+}, 2000);
 
-<div class="lesson">
-<h3>7. Fetch dan API</h3>
-<pre>fetch("https://example.com/data")
-    .then(response =&gt; response.json())
-    .then(data =&gt; {
-        console.log(data);
-    });</pre>
-<div class="warning">API nyata membutuhkan alamat endpoint yang benar dan terkadang membutuhkan API key.</div>
-</div>
+setInterval(() => {
+  console.log("Berulang");
+}, 1000);</pre>
+</details></div>
 
-<div class="lesson">
-<h3>8. Async / Await</h3>
+<div class="lesson"><details><summary>6. Promise dan async/await</summary>
+<pre>async function mulai() {
+  const hasil = await Promise.resolve("Berhasil!");
+  console.log(hasil);
+}
+
+mulai();</pre>
+</details></div>
+
+<div class="lesson"><details><summary>7. Error handling</summary>
+<pre>try {
+  throw new Error("Contoh error");
+} catch (error) {
+  console.log(error.message);
+}</pre>
+</details></div>
+</section>
+
+<section id="responsive" class="chapter">
+<span class="badge">BAB 6</span>
+<h2>📱 Responsive Web Design</h2>
+<p>Website harus nyaman dilihat di layar kecil maupun besar.</p>
+<div class="grid">
+<div class="card"><b>HP</b><br>Layout satu kolom, tombol mudah disentuh, teks tidak terlalu kecil.</div>
+<div class="card"><b>Tablet</b><br>Gunakan ruang layar dengan lebih fleksibel.</div>
+<div class="card"><b>PC/Laptop</b><br>Manfaatkan layout lebar tanpa membuat teks terlalu panjang.</div>
+</div>
+<pre>@media (max-width: 700px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}</pre>
+</section>
+
+<section id="api" class="chapter">
+<span class="badge">BAB 7</span>
+<h2>🌐 JSON & API</h2>
+<p>API memungkinkan website mengambil atau mengirim data ke layanan lain.</p>
 <pre>async function ambilData() {
-    const response = await fetch("URL_API");
+  try {
+    const response = await fetch("https://example.com/data.json");
     const data = await response.json();
     console.log(data);
-}</pre>
-</div>
+  } catch (error) {
+    console.log("Gagal:", error);
+  }
+}
 
-<div class="lesson">
-<h3>9. Error Handling</h3>
-<pre>try {
-    // kode yang mungkin error
-} catch (error) {
-    console.log(error);
-}</pre>
-</div>
-
-<div class="tip"><b>Project BAB 4:</b> Buat aplikasi catatan sederhana yang menyimpan catatan menggunakan Local Storage.</div>
+ambilData();</pre>
+<div class="note"><b>Catatan:</b> API asli bisa membutuhkan URL tertentu, parameter, autentikasi, atau API key. Jangan menaruh secret key penting langsung di JavaScript frontend.</div>
 </section>
 
-<section class="card" id="bab5">
-<h2 class="chapter-title">BAB 5 — Membuat Website Nyata</h2>
-<p><b>Target:</b> menggabungkan semua kemampuan menjadi project yang benar-benar bisa dipakai.</p>
-
-<div class="lesson">
-<h3>1. Struktur project</h3>
-<pre>website/
-├── index.html
-├── style.css
-└── script.js</pre>
-<p>Untuk project yang lebih besar, HTML, CSS, dan JavaScript sebaiknya dipisahkan.</p>
-</div>
-
-<div class="lesson">
-<h3>2. Multi halaman</h3>
-<pre>&lt;a href="tentang.html"&gt;
-    Tentang
-&lt;/a&gt;</pre>
-<p>Kamu dapat membuat beberapa halaman dan menghubungkannya dengan link.</p>
-</div>
-
-<div class="lesson">
-<h3>3. Navigasi</h3>
-<p>Buat menu yang mengarah ke Home, Tentang, Tutorial, dan Kontak.</p>
-</div>
-
-<div class="lesson">
-<h3>4. Responsive mobile</h3>
-<p>Pastikan ukuran teks, tombol, gambar, dan layout nyaman digunakan di HP.</p>
-</div>
-
-<div class="lesson">
-<h3>5. Form</h3>
-<p>Tambahkan form dan validasi JavaScript agar input pengguna diperiksa sebelum diproses.</p>
-</div>
-
-<div class="lesson">
-<h3>6. Data dan API</h3>
-<p>Gunakan Fetch untuk mengambil data dari API dan tampilkan hasilnya di halaman.</p>
-</div>
-
-<div class="lesson">
-<h3>7. Git dan GitHub</h3>
-<p>Git menyimpan riwayat perubahan project. GitHub dapat digunakan untuk menyimpan kode secara online.</p>
-<pre>git add .
-git commit -m "update website"
-git push</pre>
-</div>
-
-<div class="lesson">
-<h3>8. GitHub Pages</h3>
-<p>GitHub Pages dapat digunakan untuk menerbitkan website statis sehingga bisa dibuka melalui link.</p>
-</div>
-
-<div class="tip"><b>🎓 Project Akhir:</b> Buat website portofolio sendiri. Gabungkan HTML, CSS, JavaScript, responsive design, navigasi, form, dan minimal satu fitur interaktif.</div>
-</section>
-
-<section class="card" id="playground">
-<h2 class="chapter-title">🧪 Playground</h2>
-<p>Coba HTML sendiri di bawah ini. Tulis kode lalu tekan Jalankan.</p>
-<textarea id="editor"><h1>Halo!</h1>
-<p>Aku sedang belajar coding.</p>
-<button onclick="alert('Berhasil!')">Klik Aku</button></textarea>
-<br>
-<button class="btn green" onclick="runCode()">▶ Jalankan</button>
-<button class="btn red" onclick="clearCode()">Hapus</button>
-<div class="preview" id="preview"></div>
-</section>
-
-<section class="card">
-<h2>🎓 Kamu Sudah Sampai Sini</h2>
-<p>Kalau semua BAB sudah dipelajari, kamu sudah punya fondasi untuk membuat banyak project web.</p>
+<section class="chapter">
+<span class="badge">BAB 8</span>
+<h2>🛠️ Debugging</h2>
+<p>Program error itu normal. Yang penting tahu cara mencari penyebabnya.</p>
 <ul>
-<li>Website profil</li>
-<li>Landing page</li>
-<li>Kalkulator</li>
-<li>To-do list</li>
-<li>Game browser sederhana</li>
-<li>Website yang memakai API</li>
+<li>Buka Console DevTools.</li>
+<li>Baca pesan error dan nomor baris.</li>
+<li>Gunakan <code>console.log()</code>.</li>
+<li>Periksa nama variabel dan tanda kurung.</li>
+<li>Uji kode sedikit demi sedikit.</li>
 </ul>
-<div class="info"><b>Ingat:</b> coding bukan tentang menghafal semua kode. Yang penting paham konsep dan terbiasa mencari serta mencoba solusi.</div>
+<pre>console.log("Sampai sini");
+
+let angka = 10;
+console.log("angka =", angka);</pre>
 </section>
 
-</div>
+<section class="chapter">
+<span class="badge">BAB 9</span>
+<h2>♿ Aksesibilitas & Struktur</h2>
+<ul>
+<li>Gunakan heading secara terstruktur.</li>
+<li>Berikan <code>alt</code> yang bermakna pada gambar.</li>
+<li>Gunakan <code>label</code> untuk input.</li>
+<li>Pastikan tombol bisa dibaca dan digunakan.</li>
+<li>Jangan hanya mengandalkan warna untuk menyampaikan informasi.</li>
+</ul>
+</section>
 
+<section class="chapter">
+<span class="badge">BAB 10</span>
+<h2>🔐 Keamanan Dasar Web</h2>
+<ul>
+<li>Jangan membocorkan API key/secret ke publik.</li>
+<li>Validasi data dari pengguna.</li>
+<li>Jangan asal memasukkan input pengguna ke HTML menggunakan <code>innerHTML</code>.</li>
+<li>Untuk aplikasi nyata, keamanan backend juga diperlukan.</li>
+</ul>
+</section>
+
+<section id="project" class="chapter">
+<span class="badge">PROJECT AKHIR</span>
+<h2>🏆 Gabungkan Semuanya</h2>
+<p>Buat satu website/aplikasi pilihanmu. Contoh:</p>
+<div class="grid">
+<div class="card">📝 To-do List</div>
+<div class="card">🎮 Game sederhana</div>
+<div class="card">💰 Catatan keuangan</div>
+<div class="card">📚 Website belajar</div>
+<div class="card">🌦️ Dashboard cuaca</div>
+<div class="card">🎵 Music player sederhana</div>
+</div>
+<h3>Target project</h3>
+<ol>
+<li>HTML untuk struktur.</li>
+<li>CSS untuk tampilan.</li>
+<li>JavaScript untuk interaksi.</li>
+<li>DOM untuk mengontrol halaman.</li>
+<li>LocalStorage untuk data lokal jika diperlukan.</li>
+<li>API jika membutuhkan data dari internet.</li>
+<li>Responsive supaya nyaman di HP dan PC.</li>
+<li>Git/GitHub untuk menyimpan dan membagikan project.</li>
+</ol>
+</section>
+
+<section class="chapter">
+<span class="badge">PLAYGROUND</span>
+<h2>🧪 Coba HTML Langsung</h2>
+<p>Ketik HTML di bawah, lalu tekan tombol.</p>
+<textarea id="editor" class="play">&lt;h1&gt;Halo dunia!&lt;/h1&gt;
+&lt;p&gt;Aku sedang belajar HTML.&lt;/p&gt;
+&lt;button onclick="alert('Mantap!')"&gt;Klik aku&lt;/button&gt;</textarea>
+<br><br>
+<button class="btn" onclick="jalankan()">▶ Jalankan</button>
+<div id="preview"></div>
+</section>
+</main>
+
+<button id="top" onclick="scrollTo({top:0,behavior:'smooth'})">↑</button>
 <footer>
-<b>Pelajar Coding</b><br>
-Belajar sedikit demi sedikit sampai bisa.
+Kursus Web Lengkap • HTML + CSS + JavaScript • Belajar dari HP atau PC
 </footer>
 
-<button id="top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-
 <script>
-function go(id){
-    document.getElementById(id).scrollIntoView({behavior:"smooth"});
+function jalankan(){
+  document.getElementById("preview").innerHTML=document.getElementById("editor").value;
 }
-
-function toggleDark(){
-    document.body.classList.toggle("dark");
-}
-
-let progress=0;
-function completeLesson(){
-    progress=Math.min(progress+5,100);
-    document.getElementById("bar").style.width=progress+"%";
-}
-
-function answer(button,correct){
-    document.getElementById("quizResult").textContent =
-        correct ? "✅ Benar! DOM bisa digunakan untuk mencari dan mengubah elemen HTML." :
-        "❌ Belum tepat. Coba ingat fungsi getElementById.";
-}
-
-function runCode(){
-    document.getElementById("preview").innerHTML =
-        document.getElementById("editor").value;
-}
-
-function clearCode(){
-    document.getElementById("editor").value="";
-    document.getElementById("preview").innerHTML="";
-}
-
-window.addEventListener("scroll",function(){
-    document.getElementById("top").style.display =
-        window.scrollY>350 ? "block" : "none";
-});
-
-document.addEventListener("dblclick",function(e){
-    e.preventDefault();
-});
+const topBtn=document.getElementById("top");
+window.addEventListener("scroll",()=>topBtn.style.display=scrollY>500?"block":"none");
+document.addEventListener("dblclick",e=>e.preventDefault(),{passive:false});
 </script>
 </body>
 </html>
