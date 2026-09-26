@@ -1,674 +1,513 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
-<title>Kursus Web Lengkap — HTML CSS JavaScript</title>
-<style>
-:root{--bg:#f4f7fb;--card:#fff;--text:#172033;--muted:#667085;--main:#4f7cff;--soft:#eaf0ff;--code:#101827;--border:#dce3ef}
-*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html{scroll-behavior:smooth;touch-action:manipulation}
-body{margin:0;font-family:system-ui,-apple-system,Segoe UI,sans-serif;background:var(--bg);color:var(--text);line-height:1.65}
-button,a{touch-action:manipulation}
-header{background:linear-gradient(135deg,#315bea,#7c4dff);color:white;padding:55px 18px 42px;text-align:center}
-header h1{font-size:clamp(30px,7vw,58px);margin:0 0 8px}
-header p{margin:0 auto 22px;max-width:720px;opacity:.92}
-nav{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);overflow-x:auto;white-space:nowrap;padding:10px}
-nav a{display:inline-block;color:var(--text);text-decoration:none;font-weight:700;padding:9px 13px;border-radius:10px}
-nav a:hover{background:var(--soft)}
-main{max-width:1050px;margin:auto;padding:22px 14px 80px}
-section{scroll-margin-top:65px}
-.hero,.chapter,.lesson,.device,.project,.tip{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:20px;margin:18px 0;box-shadow:0 5px 20px #00000008}
-.hero{padding:28px}
-h2{font-size:30px;margin:0 0 10px}
-h3{margin-top:25px}
-h4{margin-bottom:5px}
-.badge{display:inline-block;background:var(--soft);color:#315bea;border-radius:999px;padding:4px 10px;font-size:13px;font-weight:800}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
-.card{background:var(--soft);padding:16px;border-radius:14px}
-pre{background:var(--code);color:#e8eefc;padding:15px;border-radius:12px;overflow:auto;white-space:pre-wrap}
-code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}
-.inline{background:#edf1f7;padding:2px 6px;border-radius:5px}
-.note{border-left:5px solid var(--main);background:#f0f4ff;padding:12px 15px;border-radius:8px}
-.lesson summary{cursor:pointer;font-weight:800;font-size:18px}
-.exercise{background:#fff8df;border:1px solid #f1dc82;padding:14px;border-radius:12px}
-.btn{border:0;border-radius:11px;padding:11px 16px;background:var(--main);color:white;font-weight:800;cursor:pointer}
-.btn.alt{background:#172033}
-#top{position:fixed;right:16px;bottom:16px;border:0;border-radius:50%;width:48px;height:48px;background:#172033;color:#fff;font-size:20px;display:none}
-footer{text-align:center;color:var(--muted);padding:35px}
-.play{width:100%;min-height:180px;background:#fff;border:1px solid var(--border);border-radius:12px;padding:12px;font:15px monospace}
-#preview{width:100%;min-height:120px;border:1px dashed var(--border);border-radius:12px;background:#fff;padding:15px;margin-top:10px}
-@media(max-width:600px){main{padding:12px 9px 60px}.hero,.chapter,.lesson,.device,.project,.tip{padding:16px}h2{font-size:25px}pre{font-size:13px}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mega Kursus Pemrograman Raksasa (Praktik Full Step-by-Step)</title>
+  <style>
+    :root {
+      --bg-dark: #0f172a;
+      --panel-dark: #1e293b;
+      --border-dark: #334155;
+      --accent: #38bdf8;
+      --accent-green: #22c55e;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --code-bg: #090d16;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, sans-serif; }
+    body { background-color: var(--bg-dark); color: var(--text-main); display: flex; height: 100vh; overflow: hidden; }
+
+    /* Layout Sidebar */
+    .sidebar { width: 320px; background-color: var(--panel-dark); border-right: 1px solid var(--border-dark); display: flex; flex-direction: column; }
+    .sidebar-header { padding: 18px 20px; background-color: var(--bg-dark); border-bottom: 1px solid var(--border-dark); }
+    .sidebar-header h2 { color: var(--accent); font-size: 16px; margin-bottom: 8px; }
+    .search-box { width: 100%; padding: 8px 12px; background: #0b1120; border: 1px solid var(--border-dark); color: white; border-radius: 6px; font-size: 13px; outline: none; }
+
+    .nav-list { flex: 1; overflow-y: auto; padding: 10px; }
+    .category-title { font-size: 11px; text-transform: uppercase; color: var(--accent-green); letter-spacing: 1px; margin: 15px 0 5px 8px; font-weight: bold; }
+    .nav-item { padding: 9px 12px; border-radius: 6px; cursor: pointer; color: var(--text-muted); font-size: 13px; margin-bottom: 3px; transition: 0.2s; display: flex; align-items: center; justify-content: space-between; }
+    .nav-item:hover, .nav-item.active { background-color: #0284c7; color: white; font-weight: 600; }
+    .badge { background: #0369a1; color: white; font-size: 10px; padding: 2px 6px; border-radius: 4px; }
+
+    /* Main Area */
+    .main-content { flex: 1; display: flex; flex-direction: column; overflow-y: auto; padding: 25px; gap: 20px; }
+
+    /* Terminal Simulator */
+    .terminal-window { background: #000; border: 1px solid var(--border-dark); border-radius: 8px; overflow: hidden; font-family: 'Consolas', 'Courier New', monospace; box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
+    .terminal-bar { background: #1e293b; padding: 8px 15px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid var(--border-dark); }
+    .btn-circle { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+    .btn-red { background: #ef4444; } .btn-yellow { background: #eab308; } .btn-green { background: #22c55e; }
+    .terminal-title { color: var(--text-muted); font-size: 12px; margin-left: 10px; }
+    .terminal-body { padding: 15px; height: 200px; overflow-y: auto; color: #4ade80; font-size: 13px; line-height: 1.5; }
+    .terminal-line { margin-bottom: 4px; word-break: break-all; }
+    .prompt { color: #38bdf8; }
+    .terminal-input-row { display: flex; align-items: center; gap: 8px; padding: 0 15px 10px 15px; }
+    .terminal-input { background: transparent; border: none; color: #4ade80; font-family: inherit; font-size: 13px; flex: 1; outline: none; }
+
+    /* Cards & Tutorial Content */
+    .card { background-color: var(--panel-dark); border: 1px solid var(--border-dark); border-radius: 8px; padding: 22px; margin-bottom: 20px; }
+    .card h3 { color: var(--accent); margin-bottom: 12px; font-size: 18px; border-bottom: 1px solid var(--border-dark); padding-bottom: 8px; }
+    .card p { color: #cbd5e1; font-size: 14px; line-height: 1.6; margin-bottom: 12px; }
+
+    .step-box { background: #111827; border: 1px solid var(--border-dark); border-left: 5px solid var(--accent); padding: 15px 18px; margin-bottom: 15px; border-radius: 0 8px 8px 0; }
+    .step-num { font-weight: bold; color: var(--accent); font-size: 13px; text-transform: uppercase; margin-bottom: 6px; letter-spacing: 0.5px; }
+    
+    .note { background: #1e1b4b; border-left: 4px solid #818cf8; padding: 10px 12px; border-radius: 4px; color: #c7d2fe; font-size: 13px; margin-top: 8px; }
+    .error-box { background: #450a0a; border-left: 4px solid #ef4444; padding: 10px 12px; border-radius: 4px; color: #fca5a5; font-size: 13px; margin-top: 8px; }
+
+    pre { background: var(--code-bg); color: #38bdf8; padding: 14px; border-radius: 6px; overflow-x: auto; font-family: 'Consolas', monospace; font-size: 13px; border: 1px solid var(--border-dark); position: relative; margin: 10px 0; }
+    .copy-btn { position: absolute; top: 6px; right: 6px; background: #334155; color: white; border: none; padding: 4px 8px; font-size: 11px; border-radius: 4px; cursor: pointer; }
+    .copy-btn:hover { background: #0284c7; }
+
+    @media (max-width: 768px) {
+      body { flex-direction: column; }
+      .sidebar { width: 100%; height: 260px; }
+      .main-content { padding: 15px; }
+    }
+  </style>
 </head>
 <body>
 
-<header>
-<h1>🚀 Kursus Web Lengkap</h1>
-<p>Belajar HTML + CSS + JavaScript dari benar-benar nol sampai bisa membuat website dan aplikasi web sendiri.</p>
-<button class="btn" onclick="document.getElementById('mulai').scrollIntoView()">Mulai Belajar</button>
-</header>
+  <!-- SIDEBAR NAVIGATION -->
+  <div class="sidebar">
+    <div class="sidebar-header">
+      <h2>⚡ Mega Kursus Coding</h2>
+      <input type="text" class="search-box" id="searchBox" placeholder="Cari materi / perintah..." onkeyup="filterMenu()">
+    </div>
+    <div class="nav-list" id="navList">
+      <div class="category-title">Interactive Tool</div>
+      <div class="nav-item active" onclick="loadModule('terminal_playground')">💻 Terminal Simulator <span class="badge">Live</span></div>
 
-<nav>
-<a href="#mulai">Mulai</a><a href="#perangkat">HP / PC</a><a href="#html">HTML</a><a href="#css">CSS</a><a href="#js">JavaScript</a><a href="#dom">DOM</a><a href="#lanjut">JS Lanjutan</a><a href="#responsive">Responsive</a><a href="#api">API</a><a href="#project">Project</a>
-</nav>
+      <div class="category-title">Kurikulum Utama</div>
+      <div class="nav-item" onclick="loadModule('modul1')">Modul 1: Termux & Linux <span class="badge">Nol</span></div>
+      <div class="nav-item" onclick="loadModule('modul2')">Modul 2: Nano & Neovim <span class="badge">Editor</span></div>
+      <div class="nav-item" onclick="loadModule('modul3')">Modul 3: HTML, CSS & JS <span class="badge">Web</span></div>
+      <div class="nav-item" onclick="loadModule('modul4')">Modul 4: Pemrograman Python <span class="badge">Python</span></div>
+      <div class="nav-item" onclick="loadModule('modul5')">Modul 5: Node.js & Express <span class="badge">Backend</span></div>
+      <div class="nav-item" onclick="loadModule('modul6')">Modul 6: JSON & SQLite <span class="badge">Database</span></div>
+      <div class="nav-item" onclick="loadModule('modul7')">Modul 7: Bot WA Auto-Reply <span class="badge">Bot</span></div>
+      <div class="nav-item" onclick="loadModule('modul8')">Modul 8: Build File APK <span class="badge">Mobile</span></div>
+      <div class="nav-item" onclick="loadModule('modul9')">Modul 9: Git & GitHub Pages <span class="badge">Deploy</span></div>
+      <div class="nav-item" onclick="loadModule('modul10')">Modul 10: Debugging & Reading Error <span class="badge">Fix</span></div>
+    </div>
+  </div>
 
-<main>
-<section id="mulai" class="hero">
-<span class="badge">JALUR BELAJAR</span>
-<h2>Belajar pelan-pelan, tapi lengkap.</h2>
-<p>Urutannya dibuat supaya pemula tidak langsung dilempar ke kode rumit. Baca penjelasan, lihat contoh, ubah kodenya, lalu kerjakan latihan.</p>
-<div class="grid">
-<div class="card"><b>1. HTML</b><br>Struktur dan isi website.</div>
-<div class="card"><b>2. CSS</b><br>Tampilan, layout, animasi.</div>
-<div class="card"><b>3. JavaScript</b><br>Logika dan interaksi.</div>
-<div class="card"><b>4. DOM</b><br>Mengendalikan halaman dengan JS.</div>
-<div class="card"><b>5. Web modern</b><br>Storage, JSON, API, async.</div>
-<div class="card"><b>6. Project</b><br>Gabungkan semuanya.</div>
-</div>
-</section>
+  <!-- MAIN CONTENT AREA -->
+  <div class="main-content">
 
-<section id="perangkat" class="chapter">
-<span class="badge">SEBELUM MULAI</span>
-<h2>📱 HP vs 💻 PC/Laptop</h2>
-<div class="grid">
-<div class="device">
-<h3>📱 Kalau pakai HP Android</h3>
-<ul>
-<li>Browser: Chrome atau browser lain.</li>
-<li>Editor: editor kode Android.</li>
-<li>Untuk terminal: Termux.</li>
-<li>Server lokal: <code>python -m http.server 8080</code>.</li>
-<li>Git/GitHub bisa dikerjakan lewat Termux.</li>
-<li>Keyboard + mouse OTG boleh dipakai, tapi tidak wajib.</li>
-</ul>
-<pre>pkg update
-pkg install python git
-mkdir website
-cd website
-python -m http.server 8080</pre>
-</div>
-<div class="device">
-<h3>💻 Kalau pakai PC/Laptop</h3>
-<ul>
-<li>Browser: Chrome/Firefox/Edge.</li>
-<li>Editor: VS Code atau editor lain.</li>
-<li>Terminal: CMD, PowerShell, Terminal Linux/macOS.</li>
-<li>Git untuk version control.</li>
-<li>DevTools browser untuk debugging.</li>
-<li>Node.js/npm berguna saat masuk tooling modern.</li>
-</ul>
-<pre>mkdir website
-cd website
-code .
-python -m http.server 8080</pre>
-</div>
-</div>
-<p class="note"><b>Penting:</b> HTML, CSS, dan JavaScript yang dipelajari pada dasarnya sama di HP maupun PC. Yang berbeda terutama alat, terminal, editor, dan cara menjalankannya.</p>
-</section>
+    <!-- TERMINAL SIMULATOR TOP BAR -->
+    <div class="terminal-window">
+      <div class="terminal-bar">
+        <span class="btn-circle btn-red"></span>
+        <span class="btn-circle btn-yellow"></span>
+        <span class="btn-circle btn-green"></span>
+        <span class="terminal-title">bash - Termux Simulator Playground (Ketik 'help' untuk petunjuk)</span>
+      </div>
+      <div class="terminal-body" id="terminalOutput">
+        <div class="terminal-line">Selamat datang di Terminal Simulator Interaktif!</div>
+        <div class="terminal-line">Ketik <span style="color:#38bdf8;">help</span> untuk melihat perintah Linux yang bisa dicoba langsung.</div>
+      </div>
+      <div class="terminal-input-row">
+        <span class="prompt" id="terminalPrompt">user@termux:~ $</span>
+        <input type="text" class="terminal-input" id="terminalInput" autofocus onkeydown="handleTerminalCommand(event)">
+      </div>
+    </div>
 
-<section id="html" class="chapter">
-<span class="badge">BAB 1</span>
-<h2>🧱 HTML — Fondasi Website</h2>
-<p>HTML menentukan struktur dan isi halaman. Anggap saja HTML sebagai kerangka rumah.</p>
+    <!-- DISPLAY AREA MODUL -->
+    <div id="contentArea"></div>
 
-<div class="lesson"><details open><summary>1. Struktur dokumen HTML</summary>
-<p>Dokumen HTML biasanya dimulai dengan deklarasi HTML, lalu <code>html</code>, <code>head</code>, dan <code>body</code>.</p>
-<pre>&lt;!DOCTYPE html&gt;
+  </div>
+
+  <script>
+    /* 1. VIRTUAL TERMINAL LOGIC */
+    let virtualFS = {
+      "~": {
+        "projects": {
+          "bot.js": "console.log('Bot WA Aktif...');",
+          "index.html": "<h1>Hello World</h1>"
+        },
+        "script.py": "print('Halo dari Termux Python!')",
+        "catatan.txt": "1. Belajar Termux\n2. Belajar Node.js\n3. Bikin Bot WA"
+      }
+    };
+    let currentPath = ["~"];
+
+    function getDir(pathArray) {
+      let current = virtualFS;
+      for (let folder of pathArray) { current = current[folder]; }
+      return current;
+    }
+
+    function printTerminal(text, isCommand = false) {
+      const output = document.getElementById('terminalOutput');
+      const line = document.createElement('div');
+      line.className = 'terminal-line';
+      if (isCommand) {
+        line.innerHTML = `<span class="prompt">${document.getElementById('terminalPrompt').innerText}</span> ${text}`;
+      } else {
+        line.innerText = text;
+      }
+      output.appendChild(line);
+      output.scrollTop = output.scrollHeight;
+    }
+
+    function handleTerminalCommand(e) {
+      if (e.key === 'Enter') {
+        const input = document.getElementById('terminalInput');
+        const cmdText = input.value.trim();
+        if (!cmdText) return;
+
+        printTerminal(cmdText, true);
+        input.value = '';
+
+        const args = cmdText.split(' ');
+        const command = args[0].toLowerCase();
+        const param = args[1];
+        const currentDir = getDir(currentPath);
+
+        switch (command) {
+          case 'help':
+            printTerminal("Perintah Terminal Virtual:\n- ls : Lihat isi folder\n- cd [folder] : Pindah folder (cd .. untuk kembali)\n- pwd : Lihat direktori aktif\n- mkdir [nama] : Buat folder baru\n- touch [nama] : Buat file baru\n- cat [file] : Lihat isi file\n- node [file.js] : Jalankan script JS\n- python [file.py] : Jalankan script Python\n- clear : Bersihkan terminal");
+            break;
+          case 'ls':
+            let items = Object.keys(currentDir).map(name => typeof currentDir[name] === 'object' ? name + '/' : name);
+            printTerminal(items.join('   ') || '(Folder kosong)');
+            break;
+          case 'pwd':
+            printTerminal("/home/user/" + currentPath.join('/'));
+            break;
+          case 'mkdir':
+            if (!param) { printTerminal("Error: Sebutkan nama folder. Contoh: mkdir proyek"); break; }
+            currentDir[param] = {};
+            printTerminal(`Folder '${param}' berhasil dibuat.`);
+            break;
+          case 'touch':
+            if (!param) { printTerminal("Error: Sebutkan nama file. Contoh: touch main.js"); break; }
+            currentDir[param] = "// File " + param;
+            printTerminal(`File '${param}' berhasil dibuat.`);
+            break;
+          case 'cd':
+            if (!param || param === '~') { currentPath = ["~"]; }
+            else if (param === '..') { if (currentPath.length > 1) currentPath.pop(); }
+            else if (currentDir[param] && typeof currentDir[param] === 'object') { currentPath.push(param); }
+            else { printTerminal(`Error: Folder '${param}' tidak ada.`); }
+            document.getElementById('terminalPrompt').innerText = `user@termux:${currentPath.join('/')} $`;
+            break;
+          case 'cat':
+            if (!param || !currentDir[param]) printTerminal(`Error: File '${param}' tidak ditemukan.`);
+            else if (typeof currentDir[param] === 'object') printTerminal(`Error: '${param}' adalah folder.`);
+            else printTerminal(currentDir[param]);
+            break;
+          case 'node':
+            if (param && param.endsWith('.js')) printTerminal(`[Node.js Output]: Success running ${param}\n> Server/Bot Status: ACTIVE`);
+            else printTerminal("Error: Gunakan file .js");
+            break;
+          case 'python':
+            if (param && param.endsWith('.py')) printTerminal(`[Python Output]: ${currentDir[param] || 'Execution Finished'}`);
+            else printTerminal("Error: Gunakan file .py");
+            break;
+          case 'clear':
+            document.getElementById('terminalOutput').innerHTML = '';
+            break;
+          default:
+            printTerminal(`Perintah '${command}' tidak dikenal. Ketik 'help' untuk panduan.`);
+        }
+      }
+    }
+
+    /* 2. DATABASE KURSUS RAKSASA DETAILED */
+    const modules = {
+      terminal_playground: `
+        <div class="card">
+          <h3>💻 Playground Terminal Simulator</h3>
+          <p>Uji coba perintah dasar Linux langsung di layar ini sebelum kamu menjalankannya di Termux HP atau Terminal Laptop!</p>
+          <div class="step-box">
+            <div class="step-num">Latihan Praktik Langsung</div>
+            <p>1. Ketik <code>ls</code> lalu tekan Enter.<br>
+            2. Ketik <code>mkdir bot_wa</code> lalu tekan Enter.<br>
+            3. Ketik <code>cd bot_wa</code> untuk berpindah ke folder baru.<br>
+            4. Ketik <code>pwd</code> untuk mengecek posisi direktori kamu sekarang.</p>
+          </div>
+        </div>
+      `,
+      modul1: `
+        <div class="card">
+          <h3>MODUL 1: Panduan Termux & Linux dari Nol</h3>
+          <p>Ikuti langkah-langkah presisi ini saat pertama kali membuka Termux di HP Android kamu.</p>
+          
+          <div class="step-box">
+            <div class="step-num">Langkah 1: Membuka Akses Penyimpanan HP</div>
+            <p>Ketik perintah di bawah di Termux, lalu tekan Enter:</p>
+            <pre>termux-setup-storage<button class="copy-btn" onclick="copyCode(this)">Copy</button></pre>
+            <div class="note">Akan muncul jendela pop-up di HP. Pilih <strong>Allow / Izinkan</strong> agar Termux bisa membaca & menyimpan file di memori HP.</div>
+          </div>
+
+          <div class="step-box">
+            <div class="step-num">Langkah 2: Update & Upgrade Repositori Paket</div>
+            <p>Jalankan pembaruan sistem paket awal:</p>
+            <pre>pkg update && pkg upgrade -y<button class="copy-btn" onclick="copyCode(this)">Copy</button></pre>
+            <div class="note">Tunggu hingga indikator persen mencapai 100%. Jika ada pertanyaan [Y/n], otomatis terisi Y karena flag <code>-y</code>.</div>
+          </div>
+
+          <div class="step-box">
+            <div class="step-num">Langkah 3: Install Semua Tools Wajib sekaligus</div>
+            <p>Install Node.js, Python, Git, Nano, dan Neovim dengan satu baris perintah:</p>
+            <pre>pkg install git nodejs python nano neovim -y<button class="copy-btn" onclick="copyCode(this)">Copy</button></pre>
+          </div>
+
+          <div class="step-box">
+            <div class="step-num">Langkah 4: Latihan Membuat & Membuka Folder</div>
+            <p>Jalankan perintah ini satu per satu:</p>
+            <pre>mkdir proyek_pertama
+cd proyek_pertama
+pwd<button class="copy-btn" onclick="copyCode(this)">Copy</button></pre>
+            <div class="note">Perintah <code>pwd</code> akan menampilkan posisi folder kamu: <code>/data/data/com.termux/files/home/proyek_pertama</code></div>
+          </div>
+        </div>
+      `,
+      modul2: `
+        <div class="card">
+          <h3>MODUL 2: Teks Editor Terminal (Nano vs Neovim)</h3>
+          <p>Panduan lengkap menggunakan dua editor paling utama di terminal HP dan Laptop.</p>
+
+          <div class="step-box">
+            <div class="step-num">Panduan Step-by-Step Editor Nano</div>
+            <p>1. Ketik perintah: <code>nano pesan.txt</code> lalu Enter.<br>
+            2. Ketik kalimat: <em>Halo, saya sedang belajar koding di Termux.</em><br>
+            3. Cara Simpan: Tekan tombol <code>Ctrl + O</code> di keyboard HP, lalu tekan <code>Enter</code>.<br>
+            4. Cara Keluar: Tekan tombol <code>Ctrl + X</code>.</p>
+          </div>
+
+          <div class="step-box">
+            <div class="step-num">Panduan Step-by-Step Editor Neovim (Nvim)</div>
+            <p>1. Ketik perintah: <code>nvim app.js</code> lalu Enter.<br>
+            2. Tekan tombol huruf <code>i</code> untuk masuk ke <strong>Insert Mode</strong> (Bisa mengetik).<br>
+            3. Tulis kode: <code>console.log("Halo dari Neovim");</code><br>
+            4. Tekan tombol <code>Esc</code> untuk kembali ke Mode Normal.<br>
+            5. Ketik <code>:wq</code> lalu tekan Enter untuk Simpan & Keluar.</p>
+            <div class="error-box"><strong>Cara Mengatasi Macet di Nvim:</strong> Jika bingung atau terjebak tidak bisa keluar, tekan tombol <code>Esc</code> lalu ketik <code>:q!</code> dan Enter untuk keluar paksa tanpa menyimpan.</div>
+          </div>
+        </div>
+      `,
+      modul3: `
+        <div class="card">
+          <h3>MODUL 3: Frontend Web (HTML + CSS + JavaScript)</h3>
+          <div class="step-box">
+            <div class="step-num">Langkah 1: Buka File index.html dengan Nano/Nvim</div>
+            <pre>nano index.html<button class="copy-btn" onclick="copyCode(this)">Copy</button></pre>
+          </div>
+          <div class="step-box">
+            <div class="step-num">Langkah 2: Masukkan Kode HTML Lengkap Berikut</div>
+            <pre>&lt;!DOCTYPE html&gt;
 &lt;html lang="id"&gt;
 &lt;head&gt;
   &lt;meta charset="UTF-8"&gt;
-  &lt;title&gt;Website Saya&lt;/title&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Aplikasi Web Sederhana&lt;/title&gt;
+  &lt;style&gt;
+    body { background-color: #0f172a; color: #f8fafc; font-family: sans-serif; text-align: center; padding: 40px; }
+    button { padding: 12px 24px; background: #0284c7; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; }
+  &lt;/style&gt;
 &lt;/head&gt;
 &lt;body&gt;
-  &lt;h1&gt;Halo!&lt;/h1&gt;
+  &lt;h1 id="text"&gt;Selamat Datang di Web Pertama Saya&lt;/h1&gt;
+  &lt;button onclick="clickMe()"&gt;Klik Tombol Ini&lt;/button&gt;
+
+  &lt;script&gt;
+    function clickMe() {
+      document.getElementById('text').innerText = "Hebat! JavaScript Berhasil Dijalankan.";
+    }
+  &lt;/script&gt;
 &lt;/body&gt;
-&lt;/html&gt;</pre>
-<div class="exercise"><b>Latihan:</b> Ganti judul tab dan tulisan <code>Halo!</code>.</div>
-</details></div>
+&lt;/html&gt;<button class="copy-btn" onclick="copyCode(this)">Copy</button></pre>
+          </div>
+        </div>
+      `,
+      modul4: `
+        <div class="card">
+          <h3>MODUL 4: Pemrograman Python dari Dasar</h3>
+          <div class="step-box">
+            <div class="step-num">Langkah 1: Buat File main.py</div>
+            <pre>nano main.py<button class="copy-btn" onclick="copyCode(this)">Copy</button></pre>
+          </div>
+          <div class="step-box">
+            <div class="step-num">Langkah 2: Masukkan Kode Logic Python</div>
+            <pre># Input nama dari user
+nama = input("Masukkan Nama Anda: ")
+umur = int(input("Masukkan Umur Anda: "))
 
-<div class="lesson"><details><summary>2. Heading dan paragraph</summary>
-<pre>&lt;h1&gt;Judul Utama&lt;/h1&gt;
-&lt;h2&gt;Subjudul&lt;/h2&gt;
-&lt;p&gt;Ini sebuah paragraf.&lt;/p&gt;</pre>
-<p><code>h1</code> sampai <code>h6</code> digunakan untuk tingkatan heading. <code>p</code> untuk paragraf.</p>
-</details></div>
+print(f"
+Halo {nama}, umur Anda adalah {umur} tahun.")
 
-<div class="lesson"><details><summary>3. Link dan gambar</summary>
-<pre>&lt;a href="https://example.com"&gt;Buka website&lt;/a&gt;
+if umur >= 17:
+    print("Status: Anda Sudah Dewasa (Bisa Buat KTP)")
+else:
+    print("Status: Anda Masih Anak-anak/Remaja")<button class="copy-btn" onclick="copyCode(this)">Copy</button></pre>
+          </div>
+          <div class="step-box">
+            <div class="step-num">Langkah 3: Jalankan Program Python</div>
+            <pre>python main.py<button class="copy-btn" onclick="copyCode(this)">Copy</button></pre>
+          </div>
+        </div>
+      `,
+      modul5: `
+        <div class="card">
+          <h3>MODUL 5: Backend Server dengan Node.js & Express</h3>
+          <div class="step-box">
+            <div class="step-num">Langkah 1: Inisialisasi Project Node.js</div>
+            <pre>mkdir my-api && cd my-api
+npm init -y
+npm install express<button class="copy-btn" onclick="copyCode(this)">Copy</button></pre>
+          </div>
+          <div class="step-box">
+            <div class="step-num">Langkah 2: Buat File server.js</div>
+            <pre>const express = require('express');
+const app = express();
+const PORT = 3000;
 
-&lt;img src="gambar.jpg" alt="Deskripsi gambar"&gt;</pre>
-<p><code>href</code> menentukan tujuan link. <code>src</code> menentukan sumber gambar. <code>alt</code> membantu aksesibilitas.</p>
-</details></div>
+app.get('/', (req, res) => {
+  res.json({ message: "API Backend Berhasil Berjalan!", status: "Success" });
+});
 
-<div class="lesson"><details><summary>4. List</summary>
-<pre>&lt;ul&gt;
-  &lt;li&gt;HTML&lt;/li&gt;
-  &lt;li&gt;CSS&lt;/li&gt;
-&lt;/ul&gt;
+app.listen(PORT, () => {
+  console.log(\`Server berjalan aktif di http://localhost:\${PORT}\`);
+});<button class="copy-btn" onclick="copyCode(this)">Copy</button></pre>
+          </div>
+          <div class="step-box">
+            <div class="step-num">Langkah 3: Jalankan Server Backend</div>
+            <pre>node server.js<button class="copy-btn" onclick="copyCode(this)">Copy</button></pre>
+          </div>
+        </div>
+      `,
+      modul6: `
+        <div class="card">
+          <h3>MODUL 6: Pengelolaan Data (JSON & SQLite)</h3>
+          <div class="step-box">
+            <div class="step-num">Format Standar JSON Data</div>
+            <pre>{
+  "id": 1,
+  "pengirim": "Budi",
+  "pesan": "Halo, apa kabar?",
+  "terkirim": true
+}<button class="copy-btn" onclick="copyCode(this)">Copy</button></pre>
+          </div>
+          <div class="step-box">
+            <div class="step-num">Koneksi SQLite di Node.js</div>
+            <pre>npm install sqlite3<button class="copy-btn" onclick="copyCode(this)">Copy</button></pre>
+          </div>
+        </div>
+      `,
+      modul7: `
+        <div class="card">
+          <h3>MODUL 7: Bikin Bot WhatsApp Auto-Reply dari Nol</h3>
+          <div class="step-box">
+            <div class="step-num">Langkah 1: Setup Folder & Install Library Bot</div>
+            <pre>mkdir bot-wa-project && cd bot-wa-project
+npm init -y
+npm install @whiskeysockets/baileys qrcode-terminal<button class="copy-btn" onclick="copyCode(this)">Copy</button></pre>
+          </div>
+          <div class="step-box">
+            <div class="step-num">Langkah 2: Tulis Script Bot (index.js)</div>
+            <pre>const { default: makeWASocket, useMultiFileAuthState } = require('@whiskeysockets/baileys');
+const qrcode = require('qrcode-terminal');
 
-&lt;ol&gt;
-  &lt;li&gt;Pertama&lt;/li&gt;
-  &lt;li&gt;Kedua&lt;/li&gt;
-&lt;/ol&gt;</pre>
-</details></div>
+async function connectToWhatsApp() {
+    const { state, saveCreds } = await useMultiFileAuthState('auth_info_baileys');
+    const sock = makeWASocket({ auth: state, printQRInTerminal: true });
 
-<div class="lesson"><details><summary>5. Button</summary>
-<pre>&lt;button&gt;Klik Saya&lt;/button&gt;</pre>
-<p>Button sendiri belum otomatis melakukan aksi. Nanti JavaScript yang membuatnya interaktif.</p>
-</details></div>
+    sock.ev.on('creds.update', saveCreds);
 
-<div class="lesson"><details><summary>6. Table</summary>
-<pre>&lt;table&gt;
-  &lt;tr&gt;&lt;th&gt;Nama&lt;/th&gt;&lt;th&gt;Nilai&lt;/th&gt;&lt;/tr&gt;
-  &lt;tr&gt;&lt;td&gt;Budi&lt;/td&gt;&lt;td&gt;90&lt;/td&gt;&lt;/tr&gt;
-&lt;/table&gt;</pre>
-</details></div>
+    sock.ev.on('messages.upsert', async ({ messages }) => {
+        const m = messages[0];
+        if (!m.message || m.key.fromMe) return;
 
-<div class="lesson"><details><summary>7. Form dan input</summary>
-<pre>&lt;form&gt;
-  &lt;label&gt;Nama:&lt;/label&gt;
-  &lt;input type="text" placeholder="Nama kamu"&gt;
-  &lt;button type="submit"&gt;Kirim&lt;/button&gt;
-&lt;/form&gt;</pre>
-</details></div>
+        const body = m.message.conversation || m.message.extendedTextMessage?.text;
+        const sender = m.key.remoteJid;
 
-<div class="lesson"><details><summary>8. div, span, class, id</summary>
-<pre>&lt;div class="kartu"&gt;
-  &lt;h2 id="judul"&gt;Halo&lt;/h2&gt;
-  &lt;span&gt;Teks kecil&lt;/span&gt;
-&lt;/div&gt;</pre>
-<p><code>class</code> cocok untuk banyak elemen. <code>id</code> biasanya digunakan untuk satu elemen tertentu.</p>
-</details></div>
+        console.log(\`Pesan Masuk dari \${sender}: \${body}\`);
 
-<div class="lesson"><details><summary>9. Semantic HTML</summary>
-<pre>&lt;header&gt;Header&lt;/header&gt;
-&lt;nav&gt;Menu&lt;/nav&gt;
-&lt;main&gt;Isi utama&lt;/main&gt;
-&lt;section&gt;Bagian&lt;/section&gt;
-&lt;article&gt;Artikel&lt;/article&gt;
-&lt;footer&gt;Footer&lt;/footer&gt;</pre>
-<p>Elemen semantik membantu struktur halaman lebih jelas.</p>
-</details></div>
-
-<div class="lesson"><details><summary>10. Media dan metadata</summary>
-<pre>&lt;audio controls src="musik.mp3"&gt;&lt;/audio&gt;
-&lt;video controls src="video.mp4"&gt;&lt;/video&gt;
-
-&lt;meta name="description" content="Website belajar coding"&gt;</pre>
-</details></div>
-
-<div class="project"><h3>🎯 Project HTML</h3><p>Buat halaman profil sederhana berisi judul, foto, deskripsi, daftar hobi, tabel jadwal, link, dan form kontak.</p></div>
-</section>
-
-<section id="css" class="chapter">
-<span class="badge">BAB 2</span>
-<h2>🎨 CSS — Membuat Website Bagus</h2>
-<p>CSS mengatur warna, ukuran, jarak, posisi, layout, responsif, dan animasi.</p>
-
-<div class="lesson"><details open><summary>1. Memasang CSS</summary>
-<pre>&lt;style&gt;
-  body { background: lightblue; }
-  h1 { color: blue; }
-&lt;/style&gt;</pre>
-<p>Untuk project besar, CSS biasanya dipisahkan menjadi <code>style.css</code> lalu dipanggil dengan <code>&lt;link&gt;</code>.</p>
-</details></div>
-
-<div class="lesson"><details><summary>2. Selector</summary>
-<pre>p { color: red; }
-.kartu { padding: 20px; }
-#judul { font-size: 40px; }</pre>
-</details></div>
-
-<div class="lesson"><details><summary>3. Warna, background, font, text</summary>
-<pre>body {
-  background: #f4f7fb;
-  color: #172033;
-  font-family: Arial, sans-serif;
-}
-h1 {
-  color: #4f7cff;
-  text-align: center;
-  font-size: 48px;
-}</pre>
-</details></div>
-
-<div class="lesson"><details><summary>4. Box model: margin dan padding</summary>
-<pre>.kotak {
-  margin: 20px;
-  padding: 20px;
-  border: 2px solid black;
-  width: 250px;
-}</pre>
-<p><b>Padding</b> adalah ruang di dalam elemen. <b>Margin</b> adalah ruang di luar elemen.</p>
-</details></div>
-
-<div class="lesson"><details><summary>5. Border, radius, shadow</summary>
-<pre>.kartu {
-  border: 1px solid #ddd;
-  border-radius: 15px;
-  box-shadow: 0 5px 20px #0002;
-}</pre>
-</details></div>
-
-<div class="lesson"><details><summary>6. Flexbox</summary>
-<pre>.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
-}</pre>
-<p>Flexbox sangat berguna untuk menyusun elemen secara horizontal atau vertikal.</p>
-</details></div>
-
-<div class="lesson"><details><summary>7. Grid</summary>
-<pre>.container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
-}</pre>
-</details></div>
-
-<div class="lesson"><details><summary>8. Position dan z-index</summary>
-<pre>.kotak {
-  position: relative;
-  top: 10px;
+        if (body === '!ping') {
+            await sock.sendMessage(sender, { text: 'Pong! Bot WhatsApp aktif.' });
+        }
+    });
 }
 
-.menu {
-  position: fixed;
-  top: 0;
-  z-index: 100;
-}</pre>
-</details></div>
-
-<div class="lesson"><details><summary>9. Pseudo-class dan pseudo-element</summary>
-<pre>button:hover {
-  transform: scale(1.05);
-}
-
-p::first-letter {
-  font-size: 30px;
-}</pre>
-</details></div>
-
-<div class="lesson"><details><summary>10. Transition dan animation</summary>
-<pre>button {
-  transition: .2s;
-}
-button:hover {
-  transform: scale(1.05);
-}
-
-@keyframes muncul {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-.kartu {
-  animation: muncul 1s;
-}</pre>
-</details></div>
-
-<div class="lesson"><details><summary>11. Responsive / media query</summary>
-<pre>@media (max-width: 600px) {
-  h1 { font-size: 30px; }
-  .container { grid-template-columns: 1fr; }
-}</pre>
-<p>Dengan media query, tampilan dapat menyesuaikan layar HP, tablet, dan PC.</p>
-</details></div>
-
-<div class="lesson"><details><summary>12. CSS variables</summary>
-<pre>:root {
-  --utama: #4f7cff;
-}
-
-button {
-  background: var(--utama);
-}</pre>
-</details></div>
-
-<div class="project"><h3>🎯 Project CSS</h3><p>Ambil project HTML sebelumnya lalu ubah menjadi website profil yang punya kartu, tombol, layout Flexbox/Grid, animasi, dan tampilan HP.</p></div>
-</section>
-
-<section id="js" class="chapter">
-<span class="badge">BAB 3</span>
-<h2>⚙️ JavaScript — Otak Website</h2>
-
-<div class="lesson"><details open><summary>1. Variabel</summary>
-<pre>let nama = "Budi";
-const umur = 15;
-
-console.log(nama);
-console.log(umur);</pre>
-<p><code>let</code> dapat diubah. <code>const</code> digunakan untuk nilai yang tidak perlu diganti.</p>
-</details></div>
-
-<div class="lesson"><details><summary>2. String, number, boolean</summary>
-<pre>let nama = "Budi";
-let umur = 15;
-let aktif = true;</pre>
-</details></div>
-
-<div class="lesson"><details><summary>3. Operator</summary>
-<pre>let a = 10;
-let b = 3;
-
-console.log(a + b);
-console.log(a - b);
-console.log(a * b);
-console.log(a / b);
-console.log(a > b);</pre>
-</details></div>
-
-<div class="lesson"><details><summary>4. If / else</summary>
-<pre>let nilai = 80;
-
-if (nilai >= 75) {
-  console.log("Lulus");
-} else {
-  console.log("Belum lulus");
-}</pre>
-</details></div>
-
-<div class="lesson"><details><summary>5. Loop</summary>
-<pre>for (let i = 1; i <= 5; i++) {
-  console.log(i);
-}
-
-let x = 0;
-while (x < 5) {
-  console.log(x);
-  x++;
-}</pre>
-</details></div>
-
-<div class="lesson"><details><summary>6. Function</summary>
-<pre>function sapa(nama) {
-  return "Halo " + nama;
-}
-
-console.log(sapa("Budi"));</pre>
-</details></div>
-
-<div class="lesson"><details><summary>7. Array</summary>
-<pre>let buah = ["Apel", "Jeruk", "Mangga"];
-
-console.log(buah[0]);
-buah.push("Pisang");</pre>
-</details></div>
-
-<div class="lesson"><details><summary>8. Object</summary>
-<pre>let player = {
-  nama: "Alex",
-  level: 5,
-  koin: 100
-};
-
-console.log(player.nama);</pre>
-</details></div>
-
-<div class="lesson"><details><summary>9. Function modern / arrow</summary>
-<pre>const tambah = (a, b) => {
-  return a + b;
-};</pre>
-</details></div>
-
-<div class="lesson"><details><summary>10. Template literal</summary>
-<pre>let nama = "Budi";
-let umur = 15;
-
-console.log(`Nama saya ${nama}, umur ${umur}`);</pre>
-</details></div>
-
-<div class="project"><h3>🎯 Project JavaScript dasar</h3><p>Buat program penghitung nilai: pengguna memasukkan nilai, JavaScript menentukan kategori nilai dan menampilkan hasil.</p></div>
-</section>
-
-<section id="dom" class="chapter">
-<span class="badge">BAB 4</span>
-<h2>🖱️ DOM & Interaksi</h2>
-<p>DOM memungkinkan JavaScript membaca dan mengubah elemen HTML.</p>
-
-<div class="lesson"><details open><summary>1. Mengambil elemen</summary>
-<pre>const judul = document.getElementById("judul");
-const tombol = document.querySelector(".tombol");</pre>
-</details></div>
-
-<div class="lesson"><details><summary>2. Mengubah teks</summary>
-<pre>judul.innerText = "Judul Baru!";</pre>
-</details></div>
-
-<div class="lesson"><details><summary>3. Mengubah CSS</summary>
-<pre>judul.style.color = "red";
-judul.style.fontSize = "50px";</pre>
-</details></div>
-
-<div class="lesson"><details><summary>4. Event click</summary>
-<pre>tombol.addEventListener("click", () => {
-  judul.innerText = "Tombol ditekan!";
-});</pre>
-</details></div>
-
-<div class="lesson"><details><summary>5. Input</summary>
-<pre>const input = document.querySelector("#nama");
-const hasil = document.querySelector("#hasil");
-
-function tampilkan() {
-  hasil.innerText = input.value;
-}</pre>
-</details></div>
-
-<div class="lesson"><details><summary>6. Membuat elemen dengan JS</summary>
-<pre>const p = document.createElement("p");
-p.innerText = "Elemen baru!";
-document.body.appendChild(p);</pre>
-</details></div>
-
-<div class="lesson"><details><summary>7. Mini quiz</summary>
-<pre>let jawaban = "html";
-
-if (jawaban === "html") {
-  console.log("Benar!");
-} else {
-  console.log("Salah!");
-}</pre>
-</details></div>
-
-<div class="project"><h3>🎯 Project DOM</h3><p>Buat to-do list sederhana: input tugas → klik tambah → tugas muncul di halaman → tombol hapus menghapus tugas.</p></div>
-</section>
-
-<section id="lanjut" class="chapter">
-<span class="badge">BAB 5</span>
-<h2>🧠 JavaScript Lanjutan</h2>
-
-<div class="lesson"><details open><summary>1. Array methods</summary>
-<pre>const angka = [1, 2, 3, 4];
-
-const kaliDua = angka.map(x => x * 2);
-const besar = angka.filter(x => x > 2);
-
-console.log(kaliDua);
-console.log(besar);</pre>
-</details></div>
-
-<div class="lesson"><details><summary>2. Destructuring & spread</summary>
-<pre>const user = { nama: "Budi", level: 5 };
-const { nama, level } = user;
-
-const a = [1, 2];
-const b = [...a, 3, 4];</pre>
-</details></div>
-
-<div class="lesson"><details><summary>3. LocalStorage</summary>
-<pre>localStorage.setItem("nama", "Budi");
-
-const nama = localStorage.getItem("nama");
-console.log(nama);</pre>
-<p>Bisa digunakan untuk menyimpan data sederhana di browser.</p>
-</details></div>
-
-<div class="lesson"><details><summary>4. JSON</summary>
-<pre>const data = {
-  nama: "Budi",
-  level: 5
-};
-
-const teks = JSON.stringify(data);
-const kembali = JSON.parse(teks);</pre>
-</details></div>
-
-<div class="lesson"><details><summary>5. Timer</summary>
-<pre>setTimeout(() => {
-  console.log("Jalan setelah 2 detik");
-}, 2000);
-
-setInterval(() => {
-  console.log("Berulang");
-}, 1000);</pre>
-</details></div>
-
-<div class="lesson"><details><summary>6. Promise dan async/await</summary>
-<pre>async function mulai() {
-  const hasil = await Promise.resolve("Berhasil!");
-  console.log(hasil);
-}
-
-mulai();</pre>
-</details></div>
-
-<div class="lesson"><details><summary>7. Error handling</summary>
-<pre>try {
-  throw new Error("Contoh error");
-} catch (error) {
-  console.log(error.message);
-}</pre>
-</details></div>
-</section>
-
-<section id="responsive" class="chapter">
-<span class="badge">BAB 6</span>
-<h2>📱 Responsive Web Design</h2>
-<p>Website harus nyaman dilihat di layar kecil maupun besar.</p>
-<div class="grid">
-<div class="card"><b>HP</b><br>Layout satu kolom, tombol mudah disentuh, teks tidak terlalu kecil.</div>
-<div class="card"><b>Tablet</b><br>Gunakan ruang layar dengan lebih fleksibel.</div>
-<div class="card"><b>PC/Laptop</b><br>Manfaatkan layout lebar tanpa membuat teks terlalu panjang.</div>
-</div>
-<pre>@media (max-width: 700px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
-}</pre>
-</section>
-
-<section id="api" class="chapter">
-<span class="badge">BAB 7</span>
-<h2>🌐 JSON & API</h2>
-<p>API memungkinkan website mengambil atau mengirim data ke layanan lain.</p>
-<pre>async function ambilData() {
-  try {
-    const response = await fetch("https://example.com/data.json");
-    const data = await response.json();
-    console.log(data);
-  } catch (error) {
-    console.log("Gagal:", error);
-  }
-}
-
-ambilData();</pre>
-<div class="note"><b>Catatan:</b> API asli bisa membutuhkan URL tertentu, parameter, autentikasi, atau API key. Jangan menaruh secret key penting langsung di JavaScript frontend.</div>
-</section>
-
-<section class="chapter">
-<span class="badge">BAB 8</span>
-<h2>🛠️ Debugging</h2>
-<p>Program error itu normal. Yang penting tahu cara mencari penyebabnya.</p>
-<ul>
-<li>Buka Console DevTools.</li>
-<li>Baca pesan error dan nomor baris.</li>
-<li>Gunakan <code>console.log()</code>.</li>
-<li>Periksa nama variabel dan tanda kurung.</li>
-<li>Uji kode sedikit demi sedikit.</li>
-</ul>
-<pre>console.log("Sampai sini");
-
-let angka = 10;
-console.log("angka =", angka);</pre>
-</section>
-
-<section class="chapter">
-<span class="badge">BAB 9</span>
-<h2>♿ Aksesibilitas & Struktur</h2>
-<ul>
-<li>Gunakan heading secara terstruktur.</li>
-<li>Berikan <code>alt</code> yang bermakna pada gambar.</li>
-<li>Gunakan <code>label</code> untuk input.</li>
-<li>Pastikan tombol bisa dibaca dan digunakan.</li>
-<li>Jangan hanya mengandalkan warna untuk menyampaikan informasi.</li>
-</ul>
-</section>
-
-<section class="chapter">
-<span class="badge">BAB 10</span>
-<h2>🔐 Keamanan Dasar Web</h2>
-<ul>
-<li>Jangan membocorkan API key/secret ke publik.</li>
-<li>Validasi data dari pengguna.</li>
-<li>Jangan asal memasukkan input pengguna ke HTML menggunakan <code>innerHTML</code>.</li>
-<li>Untuk aplikasi nyata, keamanan backend juga diperlukan.</li>
-</ul>
-</section>
-
-<section id="project" class="chapter">
-<span class="badge">PROJECT AKHIR</span>
-<h2>🏆 Gabungkan Semuanya</h2>
-<p>Buat satu website/aplikasi pilihanmu. Contoh:</p>
-<div class="grid">
-<div class="card">📝 To-do List</div>
-<div class="card">🎮 Game sederhana</div>
-<div class="card">💰 Catatan keuangan</div>
-<div class="card">📚 Website belajar</div>
-<div class="card">🌦️ Dashboard cuaca</div>
-<div class="card">🎵 Music player sederhana</div>
-</div>
-<h3>Target project</h3>
-<ol>
-<li>HTML untuk struktur.</li>
-<li>CSS untuk tampilan.</li>
-<li>JavaScript untuk interaksi.</li>
-<li>DOM untuk mengontrol halaman.</li>
-<li>LocalStorage untuk data lokal jika diperlukan.</li>
-<li>API jika membutuhkan data dari internet.</li>
-<li>Responsive supaya nyaman di HP dan PC.</li>
-<li>Git/GitHub untuk menyimpan dan membagikan project.</li>
-</ol>
-</section>
-
-<section class="chapter">
-<span class="badge">PLAYGROUND</span>
-<h2>🧪 Coba HTML Langsung</h2>
-<p>Ketik HTML di bawah, lalu tekan tombol.</p>
-<textarea id="editor" class="play">&lt;h1&gt;Halo dunia!&lt;/h1&gt;
-&lt;p&gt;Aku sedang belajar HTML.&lt;/p&gt;
-&lt;button onclick="alert('Mantap!')"&gt;Klik aku&lt;/button&gt;</textarea>
-<br><br>
-<button class="btn" onclick="jalankan()">▶ Jalankan</button>
-<div id="preview"></div>
-</section>
-</main>
-
-<button id="top" onclick="scrollTo({top:0,behavior:'smooth'})">↑</button>
-<footer>
-Kursus Web Lengkap • HTML + CSS + JavaScript • Belajar dari HP atau PC
-</footer>
-
-<script>
-function jalankan(){
-  document.getElementById("preview").innerHTML=document.getElementById("editor").value;
-}
-const topBtn=document.getElementById("top");
-window.addEventListener("scroll",()=>topBtn.style.display=scrollY>500?"block":"none");
-document.addEventListener("dblclick",e=>e.preventDefault(),{passive:false});
-</script>
+connectToWhatsApp();<button class="copy-btn" onclick="copyCode(this)">Copy</button></pre>
+          </div>
+          <div class="step-box">
+            <div class="step-num">Langkah 3: Jalankan Bot & Scan QR Code</div>
+            <pre>node index.js<button class="copy-btn" onclick="copyCode(this)">Copy</button></pre>
+            <div class="note">Scan QR Code yang muncul di layar Termux menggunakan fitur <strong>Perangkat Tertaut (Linked Devices)</strong> di aplikasi WhatsApp HP kamu.</div>
+          </div>
+        </div>
+      `,
+      modul8: `
+        <div class="card">
+          <h3>MODUL 8: Mengubah Web HTML Menjadi File APK Android</h3>
+          <div class="step-box">
+            <div class="step-num">Metode Build dengan Capacitor</div>
+            <pre>npm install @capacitor/core @capacitor/cli
+npx cap init "AplikasiSaya" "com.pemberani.app"
+npx cap add android
+npx cap open android<button class="copy-btn" onclick="copyCode(this)">Copy</button></pre>
+          </div>
+        </div>
+      `,
+      modul9: `
+        <div class="card">
+          <h3>MODUL 9: Git & GitHub Pages Deployment</h3>
+          <div class="step-box">
+            <div class="step-num">Perintah 3 Paket Push Git</div>
+            <pre>git add .
+git commit -m "Upload mega kursus website"
+git push origin main<button class="copy-btn" onclick="copyCode(this)">Copy</button></pre>
+          </div>
+        </div>
+      `,
+      modul10: `
+        <div class="card">
+          <h3>MODUL 10: Debugging Masterclass & Solusi Error</h3>
+          <div class="step-box">
+            <div class="step-num">Daftar Error Paling Sering Muncul</div>
+            <p>1. <strong>SyntaxError: Unexpected token:</strong> Ada tanda kurung `}`, `;`, atau petik yang lupa ditutup.<br>
+            2. <strong>MODULE_NOT_FOUND:</strong> Lupa menjalankan <code>npm install [nama-package]</code>.<br>
+            3. <strong>EADDRINUSE: port 3000:</strong> Port server sedang terpakai proses lain. Matikan proses dengan <code>killall node</code>.</p>
+          </div>
+        </div>
+      `
+    };
+
+    /* 3. NAVIGATION & UI FUNCTIONS */
+    function loadModule(key) {
+      document.getElementById('contentArea').innerHTML = modules[key] || '<p>Memuat materi...</p>';
+      const items = document.querySelectorAll('.nav-item');
+      items.forEach(item => item.classList.remove('active'));
+      if (event && event.currentTarget) {
+        event.currentTarget.classList.add('active');
+      }
+    }
+
+    function filterMenu() {
+      const query = document.getElementById('searchBox').value.toLowerCase();
+      const items = document.querySelectorAll('.nav-item');
+      items.forEach(item => {
+        const text = item.innerText.toLowerCase();
+        item.style.display = text.includes(query) ? 'flex' : 'none';
+      });
+    }
+
+    function copyCode(btn) {
+      const pre = btn.parentElement;
+      const code = pre.innerText.replace('Copy', '').trim();
+      navigator.clipboard.writeText(code);
+      btn.innerText = 'Copied!';
+      setTimeout(() => btn.innerText = 'Copy', 2000);
+    }
+
+    // Load Default View
+    loadModule('terminal_playground');
+  </script>
 </body>
 </html>
